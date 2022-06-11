@@ -1,0 +1,91 @@
+@use '../../@quartz/styles/scss/color-scheme';
+@use '../../@quartz/styles/scss/fonts';
+@use '../../@quartz/styles/scss/media-queries';
+@use '../../@quartz/styles/scss/tokens';
+@use '../../styles/tokens' as qzcom-tokens;
+
+.container {
+	position: relative;
+}
+
+.frame {
+	height: 100%;
+
+	&.can-fix {
+		position: absolute;
+		top: 0;
+		height: 100vh;
+
+		&.fixed {
+			position: fixed;
+		}
+
+		&.fixed-bottom {
+			position: absolute;
+			top: auto;
+			bottom: 0;
+		}
+	}
+}
+
+/*
+	For posts with a sub-type of 'interactive', the Interactive component
+	will be given a `size` prop value of 'full-width'. These featured interactives
+	should always stretch the full width of the viewport.
+*/
+
+.full-width {
+	width: 100%;
+}
+
+/*
+	These 't-shirt' size values are used when an Interactive is displayed
+	within the post content.
+
+	The behavior of these sizes is based on the mixins in
+	common/style/mixins/layout.scss, which we use for images, videos and
+	other inline article media.
+
+	We can't use these mixins directly because they rely on the media's
+	ability to inherit its parent's dimensions. Fixed inline interactives
+	can't do this because they make use of `position: fixed`.
+*/
+
+.medium,
+.large {
+	width: calc(100vw - #{tokens.$size-gutter-mobile * 2});
+
+	@include media-queries.tablet-portrait-up {
+		max-width: qzcom-tokens.$size-max-width-content-article;
+	}
+}
+
+.large {
+	@include media-queries.desktop-up {
+		width: qzcom-tokens.$size-max-width-content;
+		max-width: qzcom-tokens.$size-max-width-content;
+		margin-left: calc((#{qzcom-tokens.$size-max-width-content - qzcom-tokens.$size-max-width-content-article}) * -0.5);
+	}
+}
+
+.extra-large {
+	width: 100vw;
+	margin-left: -#{tokens.$size-gutter-mobile};
+
+	@include media-queries.tablet-portrait-up {
+		max-width: none;
+		margin-left: calc((100vw - #{qzcom-tokens.$size-max-width-content-tablet}) * -0.5);
+	}
+
+	@include media-queries.tablet-landscape-up {
+		margin-left: calc((100vw - #{qzcom-tokens.$size-max-width-content-article}) * -0.5);
+	}
+
+	@include media-queries.desktop-up {
+		max-width: qzcom-tokens.$size-max-width-site;
+	}
+
+	@include media-queries.desktop-large-up {
+		margin-left: (qzcom-tokens.$size-max-width-site - qzcom-tokens.$size-max-width-content-article) * -0.5;
+	}
+}

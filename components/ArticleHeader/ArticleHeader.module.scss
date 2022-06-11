@@ -1,0 +1,90 @@
+@use '../../@quartz/styles/scss/color-scheme';
+@use '../../@quartz/styles/scss/fonts';
+@use '../../@quartz/styles/scss/media-queries';
+@use '../../@quartz/styles/scss/tokens';
+@use '../../styles/mixins/layout';
+@use '../../styles/tokens' as qzcom-tokens;
+
+.container {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	margin: 0 auto;
+	padding: 24px 0;
+
+	@media print {
+		text-align: center;
+	}
+
+	@include media-queries.tablet-portrait-up {
+		max-width: none;
+	}
+
+	@include media-queries.tablet-landscape-up {
+		padding: 40px 0;
+	}
+
+	&.no-hero {
+		@include media-queries.tablet-portrait-up {
+			max-width: qzcom-tokens.$size-max-width-content-article;
+		}
+	}
+
+	&.portrait {
+		max-width: qzcom-tokens.$size-max-width-site;
+
+		@include media-queries.tablet-landscape-up {
+			padding: 80px 0 tokens.$size-gutter-tablet 0;
+		}
+	}
+
+	&.is-premium {
+		text-align: center;
+
+		&.is-interactive {
+			text-align: inherit;
+		}
+	}
+}
+
+.hed-block {
+	@include layout.constrain(qzcom-tokens.$size-max-width-image-large);
+
+	&.no-hero {
+		@include media-queries.tablet-portrait-up {
+			margin: 0 auto;
+		}
+	}
+
+	&.portrait {
+		max-width: qzcom-tokens.$size-width-feature-max;
+
+		@include media-queries.tablet-landscape-up {
+			max-width: qzcom-tokens.$size-max-width-content-article;
+		}
+
+		@include media-queries.tablet-landscape-up {
+			margin: auto;
+		}
+	}
+}
+
+.headline {
+	@include fonts.maison-800-9;
+
+	color: color-scheme.$typography;
+	margin-bottom: 0;
+	margin-top: 10px;
+
+	&.is-premium {
+		@include fonts.publico-800-1;
+	}
+}
+
+.byline {
+	margin-top: 16px;
+
+	@include media-queries.tablet-landscape-up {
+		margin-top: 24px;
+	}
+}

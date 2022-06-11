@@ -1,0 +1,43 @@
+@use '../../../@quartz/styles/scss/color-scheme';
+@use '../../../@quartz/styles/scss/fonts';
+@use '../../../@quartz/styles/scss/helpers/resets';
+@use '../../../@quartz/styles/scss/media-queries';
+@use '../../../@quartz/styles/scss/tokens';
+
+
+//export default {
+//"container":"_3w72u", "mobile-full-width":"bI531", "mobileFullWidth":"bI531", "work":"_5BQz3", "toc-container":"_8ip5v", "tocContainer":"_8ip5v", "return-link":"PjauV", "returnLink":"PjauV", "toc-links":"_2TmkO", "tocLinks":"_2TmkO"
+//}
+//
+//;
+
+.tocLinks {
+
+}
+
+.tocContainer {
+
+}
+
+.returnLink {
+
+}
+
+.container {
+  max-width: 620px;
+  font-family: "MaisonNeue", -apple-system, "Helvetica Neue", Helvetica, "Hiragino Sans", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.3;
+  margin: 60px 20px;
+
+  @include media-queries.tablet-portrait-up {
+    margin-right: 40px;
+    margin-left: 40px;
+  }
+  @include media-queries.tablet-portrait-up {
+    margin-right: 40px;
+    margin-left: 40px;
+  }
+
+}

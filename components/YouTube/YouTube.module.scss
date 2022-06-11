@@ -1,0 +1,13 @@
+@use '../../@quartz/styles/scss/helpers/positioning';
+@use '../../styles/tokens' as qzcom-tokens;
+
+.container {
+	position: relative;
+	padding-bottom: qzcom-tokens.$size-height-aspect-ratio-default;
+
+	iframe {
+		border: 0;
+
+		@include positioning.fit-to-container;
+	}
+}

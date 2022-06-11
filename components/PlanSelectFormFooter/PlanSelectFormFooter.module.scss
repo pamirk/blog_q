@@ -1,0 +1,15 @@
+@use '../../@quartz/styles/scss/color-scheme';
+@use '../../@quartz/styles/scss/fonts';
+
+.footer {
+	@include fonts.maison-800-2;
+
+	color: color-scheme.$typography-faint;
+	margin-bottom: 150px;
+}
+
+.billing-copy {
+	@include fonts.maison-500-2;
+
+	margin-bottom: 40px;
+}

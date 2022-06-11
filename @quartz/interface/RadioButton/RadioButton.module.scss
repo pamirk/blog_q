@@ -1,0 +1,74 @@
+@use '../../styles/scss/borders';
+@use '../../styles/scss/color-scheme';
+@use '../../styles/scss/helpers/positioning';
+@use '../../styles/scss/helpers/resets';
+@use '../../styles/scss/tokens';
+
+.container {
+	display: inline-flex;
+	align-items: center;
+	cursor: pointer;
+
+	&.block {
+		display: flex;
+		width: 100%;
+	}
+}
+
+.input {
+	@include resets.appearance;
+	@include resets.focus-styles;
+
+	cursor: pointer;
+	margin-right: 12px;
+	width: 16px;
+	height: 16px;
+	border-radius: 50%;
+	border: borders.$solid-interactive;
+	transition: border-color tokens.$time-slowly;
+	background-color: color-scheme.$background-2;
+
+	&.block {
+		flex-shrink: 0;
+	}
+
+	&:focus,
+	&:hover,
+	.container:focus,
+	.container:hover & {
+		border-color: color-scheme.$accent;
+	}
+
+	&:checked,
+	&:active {
+		position: relative;
+
+		&::before {
+			@include positioning.center;
+
+			content: '';
+			width: 9px;
+			height: 9px;
+			border-radius: 50%;
+			background-color: color-scheme.$background-3;
+		}
+	}
+
+	&:checked {
+		border-color: color-scheme.$accent;
+
+		&::before {
+			background-color: color-scheme.$accent;
+		}
+	}
+
+	&:disabled,
+	&:disabled:hover {
+		opacity: 0.5;
+		border: borders.$solid-interactive;
+
+		&::before {
+			background-color: borders.$solid-interactive;
+		}
+	}
+}

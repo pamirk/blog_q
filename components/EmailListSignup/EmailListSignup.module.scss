@@ -1,0 +1,136 @@
+@use '../../@quartz/styles/scss/color-scheme';
+@use '../../@quartz/styles/scss/fonts';
+@use '../../@quartz/styles/scss/media-queries';
+
+.container {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	margin-top: 28px;
+
+	@include media-queries.tablet-portrait-up {
+		margin-top: 38px;
+	}
+
+	@include media-queries.tablet-landscape-up {
+		margin-top: 55px;
+		align-items: center;
+	}
+
+	@include media-queries.desktop-up {
+		margin-top: 60px;
+	}
+}
+
+.main {
+	min-width: 270px;
+	margin-top: 100px;
+
+	@include media-queries.tablet-landscape-up {
+		flex: 2;
+		margin-top: 0;
+	}
+}
+
+.popup .main {
+	margin-top: 0;
+}
+
+.aside {
+	position: relative;
+
+	@include media-queries.tablet-landscape-up {
+		flex: 0 1 auto;
+	}
+}
+
+.subtitle {
+	@include fonts.maison-500-2;
+
+	color: color-scheme.$typography-faint;
+	display: flex;
+	align-items: flex-start;
+	margin-bottom: 12px;
+}
+
+.clock-icon {
+	--color: #{color-scheme.$typography-faint};
+
+	height: 16px;
+	margin-right: 6px;
+
+	@include media-queries.tablet-portrait-up {
+		height: 18px;
+	}
+}
+
+.static-preview {
+	transform: rotate(-25deg) translate(6vw, 80px) scale(1.2);
+
+	@include media-queries.tablet-landscape-up {
+		display: none;
+	}
+}
+
+.tap-here {
+	@include fonts.maison-800-2;
+
+	position: absolute;
+	left: -210px;
+	top: 30px;
+	color: color-scheme.$accent;
+	transform: rotate(-27deg);
+	width: 80px;
+
+	@include media-queries.tablet-landscape-up {
+		display: none;
+	}
+
+	&::before {
+		content: '';
+		background-image: url('../../styles/svg/tap-here-arrow.svg');
+		background-repeat: no-repeat;
+		background-position: 0 0;
+		background-size: 75%;
+		width: 150px;
+		height: 43px;
+		position: absolute;
+		transform: rotate(25deg) translate(49px, 54px);
+	}
+}
+
+.scrollable-preview {
+	display: none;
+
+	@include media-queries.tablet-landscape-up {
+		margin-left: 25px;
+		display: flex;
+		align-items: center;
+	}
+}
+
+.scroll-to-preview {
+	@include fonts.maison-800-2;
+
+	display: none;
+	color: color-scheme.$accent;
+	text-align: center;
+	margin-left: 22px;
+	position: relative;
+	width: 90px;
+	background-image: url('../../styles/svg/scroll-arrows.svg');
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: 50%;
+	padding: 100px 0;
+
+	@include media-queries.desktop-up {
+		display: block;
+	}
+}
+
+.signup {
+	@include media-queries.tablet-portrait-up {
+		max-width: 520px;
+	}
+}

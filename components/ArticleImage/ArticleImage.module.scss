@@ -1,0 +1,84 @@
+@use '../../@quartz/styles/scss/color-scheme';
+@use '../../@quartz/styles/scss/fonts';
+@use '../../@quartz/styles/scss/helpers/positioning';
+@use '../../@quartz/styles/scss/media-queries';
+@use '../../styles/tokens' as qzcom-tokens;
+@use '../../styles/mixins/article-media';
+
+.container {
+	img {
+		width: 100%;
+		border-radius: 2px;
+	}
+
+	amp-img {
+		max-width: 100%;
+	}
+}
+
+.image {
+	position: relative;
+	line-height: 0;
+}
+
+.caption {
+	position: relative;
+	color: color-scheme.$typography-faint;
+	padding: 5px 0;
+
+	@include fonts.maison-500-1;
+
+	@include media-queries.tablet-portrait-up {
+		max-width: qzcom-tokens.$size-max-width-content-tablet;
+	}
+
+	@include media-queries.tablet-landscape-up {
+		max-width: none;
+	}
+}
+
+.credit {
+	@include fonts.maison;
+	@include positioning.rotate-left;
+
+	font-size: 8px;
+	text-transform: uppercase;
+	color: color-scheme.$typography-faint;
+	right: -10px;
+	bottom: 0;
+
+	@include media-queries.tablet-portrait-up {
+		font-size: 10px;
+	}
+}
+
+/* Article image sizes */
+
+.small {
+	@include article-media.small;
+
+	@media print {
+		max-width: 50%;
+		margin: auto;
+	}
+
+	&.aligncenter {
+		@include article-media.small--centered;
+	}
+
+	&.alignleft {
+		@include article-media.small--left-align;
+	}
+}
+
+.medium {
+	@include article-media.medium;
+}
+
+.large {
+	@include article-media.large;
+}
+
+.extra-large {
+	@include article-media.extra-large--centered;
+}

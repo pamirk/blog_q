@@ -1,0 +1,31 @@
+@use '../../@quartz/styles/scss/fonts';
+@use '../../@quartz/styles/scss/media-queries';
+@use '../../styles/tokens';
+
+.text {
+	width: fit-content;
+	margin: 0 auto;
+
+	@include fonts.maison-800-4;
+}
+
+.confirmation-text {
+	margin: tokens.$size-height-spacing-block-mobile auto;
+	text-align: left;
+
+	@include fonts.maison-500-3;
+}
+
+.email-signup-container {
+	margin: 12px auto 0;
+	width: 100%;
+	text-align: left;
+
+	@include media-queries.tablet-portrait-up {
+		margin-top: 16px;
+	}
+
+	@include media-queries.desktop-up {
+		margin-top: 24px;
+	}
+}

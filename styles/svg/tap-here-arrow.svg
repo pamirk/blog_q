@@ -1,0 +1,20 @@
+<svg width="92px" height="38px" viewBox="0 0 92 38" version="1.1" xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs/>
+    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g transform="translate(-396.000000, -199.000000)" stroke="#168dd9" stroke-width="2">
+            <g transform="translate(284.000000, -74.000000)">
+                <g transform="translate(445.673569, 459.418822) rotate(-132.000000) translate(-445.673569, -459.418822) translate(31.173569, 233.418822)">
+                    <g transform="translate(684.931340, 55.920682)">
+                        <g transform="translate(45.608567, 71.160404) rotate(13.000000) translate(-45.608567, -71.160404) translate(7.108567, 37.660404)">
+                            <path d="M3.60380787,55.1293427 L10.8295637,59.4787142 C10.8295637,59.4787142 5.77153462,60.2036094 5.77153462,65.2778761"
+                                  stroke-linejoin="round"
+                                  transform="translate(7.216686, 60.203609) rotate(-234.000000) translate(-7.216686, -60.203609)"/>
+                            <path d="M6.78060467,62.2267759 C25.0969156,28.1309599 48.2860328,7.38870131 76.3479563,-2.38031816e-12"/>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

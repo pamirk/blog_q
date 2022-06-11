@@ -1,0 +1,49 @@
+@use '../../@quartz/styles/scss/color-scheme';
+@use '../../@quartz/styles/scss/fonts';
+@use '../../@quartz/styles/scss/media-queries';
+
+$gutter-tablet: 50px;
+$gutter-desktop: 33px;
+$gutter-desktop-large: 100px;
+
+.title {
+	@include fonts.maison-800-6;
+}
+
+.list {
+	@include fonts.maison-500-3;
+
+	color: color-scheme.$typography-faint;
+	columns: 2;
+	column-gap: 20px;
+	list-style: none;
+	margin: 0;
+	padding: 0;
+
+	@include media-queries.tablet-portrait-up {
+		column-gap: $gutter-tablet;
+	}
+
+	@include media-queries.desktop-up {
+		columns: 3;
+		column-gap: $gutter-desktop;
+	}
+
+	@include media-queries.desktop-large-up {
+		column-gap: $gutter-desktop-large;
+	}
+
+	li {
+		break-inside: avoid;
+		padding-bottom: 1em;
+		padding-left: 1em;
+		position: relative;
+
+		&::before {
+			content: '•';
+			position: absolute;
+			left: 0;
+			top: 0;
+		}
+	}
+}

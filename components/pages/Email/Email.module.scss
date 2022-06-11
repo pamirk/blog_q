@@ -1,0 +1,41 @@
+@use '../../../@quartz/styles/scss/color-scheme';
+@use '../../../@quartz/styles/scss/fonts';
+@use '../../../@quartz/styles/scss/media-queries';
+@use '../../../styles/mixins/layout';
+@use '../../../styles/tokens' as qzcom-tokens;
+
+.header {
+	@include layout.constrain(1150px);
+
+	text-align: center;
+	margin-top: 32px;
+
+	@include media-queries.tablet-portrait-up {
+		margin-top: 48px;
+	}
+}
+
+.info {
+	@include fonts.maison-extended-700-1;
+
+	text-transform: uppercase;
+	color: color-scheme.$typography-faint;
+}
+
+.title {
+	@include fonts.maison-800-9;
+
+	margin: 20px 0 48px;
+}
+
+.content {
+	@include layout.constrain(qzcom-tokens.$size-max-width-content-article);
+}
+
+.end-module {
+	margin-top: 30px;
+
+	@include media-queries.tablet-portrait-up {
+		margin-top: 50px;
+	}
+}

@@ -1,0 +1,9 @@
+@use '../../@quartz/styles/scss/media-queries';
+
+#intercom-container {
+  display: none;
+
+  @include media-queries.tablet-landscape-up {
+    display: block;
+  }
+}

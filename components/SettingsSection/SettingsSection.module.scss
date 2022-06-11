@@ -1,0 +1,64 @@
+@use '../../@quartz/styles/scss/borders';
+@use '../../@quartz/styles/scss/color-scheme';
+@use '../../@quartz/styles/scss/fonts';
+@use '../../@quartz/styles/scss/helpers/positioning';
+@use '../../@quartz/styles/scss/helpers/resets';
+@use '../../styles/mixins/forms';
+
+.container {
+	width: 100%;
+	font-size: 12px;
+	margin: 40px 0;
+	border-bottom: borders.$solid-decorative;
+
+	&:last-child {
+		border-bottom: 0;
+	}
+}
+
+.title {
+	@include forms.form-field-title;
+
+	margin-bottom: 0;
+}
+
+.subtitle {
+	@include forms.form-field-description;
+
+	margin: 5px 0 0;
+}
+
+.field {
+	display: flex;
+	justify-content: space-between;
+	padding: 20px 0;
+	font-size: 16px;
+	border-bottom: borders.$solid-decorative;
+
+	&:last-child {
+		border-bottom: 0;
+	}
+}
+
+.info {
+	position: relative;
+	padding-left: 34px;
+}
+
+.icon {
+	@include positioning.vertical-center;
+
+	--color: #{color-scheme.$typography};
+
+	left: 0;
+	height: 20px;
+	width: auto;
+}
+
+.description {
+	margin: 0;
+}
+
+.fields {
+	@include resets.ul;
+}

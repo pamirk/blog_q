@@ -1,0 +1,65 @@
+@use '../../../@quartz/styles/scss/borders';
+@use '../../../@quartz/styles/scss/color-scheme';
+@use '../../../@quartz/styles/scss/media-queries';
+@use '../../../styles/mixins/layout';
+
+.outer {
+	position: relative;
+	padding: 80px 0;
+	border-top: borders.$solid-decorative;
+	background: color-scheme.$background-2;
+
+	@include media-queries.tablet-portrait-up {
+		padding: 100px 0;
+	}
+
+	&.background-alt {
+		background: color-scheme.$background-1;
+	}
+
+	&.background-dark-overlay {
+		background: rgba(0, 0, 0, 0.1);
+	}
+
+	&.background-medium-dark-overlay {
+		background: rgba(0, 0, 0, 0.15);
+	}
+
+	&.background-none {
+		background: none;
+	}
+
+	&.hide-top-border {
+		border-top: 0;
+	}
+
+	&.hide-top-padding {
+		padding-top: 0;
+	}
+
+	&.hide-bottom-padding {
+		padding-bottom: 0;
+	}
+}
+
+.inner {
+	position: relative;
+
+	& > * {
+		position: relative;
+	}
+
+	&.constrain {
+		@include layout.constrain;
+	}
+
+	.left-gutter & {
+		@include media-queries.tablet-landscape-up {
+			padding-left: 200px;
+		}
+
+		@include media-queries.desktop-up {
+			padding-left: 210px;
+		}
+	}
+}

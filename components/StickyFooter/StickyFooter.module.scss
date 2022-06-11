@@ -1,0 +1,25 @@
+@use '../../@quartz/styles/scss/color-scheme';
+@use '../../@quartz/styles/scss/fonts';
+@use '../../@quartz/styles/scss/tokens';
+@use '../../styles/tokens' as qzcom-tokens;
+
+.container {
+	@include fonts.maison-800-4;
+
+	text-align: center;
+	position: fixed;
+	bottom: 0;
+	z-index: qzcom-tokens.$z-index-six;
+	width: 100%;
+	background-color: color-scheme.$background-2;
+	box-shadow: 0 1px 0 0 tokens.$color-light-gray, 0 -1px 0 0 tokens.$color-light-gray;
+
+	/* Slide-in effect */
+	overflow-y: hidden;
+	transition: max-height tokens.$time-slowly;
+	max-height: 500px;
+
+	&.hidden {
+		max-height: 0;
+	}
+}

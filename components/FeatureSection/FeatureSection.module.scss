@@ -1,0 +1,56 @@
+@use '../../@quartz/styles/scss/media-queries';
+@use '../../@quartz/styles/scss/helpers/resets';
+@use '../../@quartz/styles/scss/states';
+@use '../../styles/mixins/layout';
+@use '../../styles/tokens';
+
+.container {
+	margin-top: 40px;
+
+	@include media-queries.tablet-portrait-up {
+		margin-top: 48px;
+	}
+
+	@include media-queries.desktop-up {
+		margin-top: 60px;
+	}
+
+	&:nth-of-type(1) {
+		margin-top: 0;
+	}
+}
+
+.header-link {
+	@include layout.block-spacing;
+
+	display: block;
+}
+
+.posts {
+	@include resets.ul;
+	@include layout.mobile-horizontal-scroller;
+
+	align-items: flex-start;
+	justify-content: space-between;
+	margin-top: 0;
+}
+
+.align-left {
+	justify-content: flex-start;
+}
+
+.post {
+	@include layout.guides-scrolling-list-item;
+	@include states.fade-on-hover;
+
+	@include media-queries.desktop-up {
+		max-width: 30%;
+	}
+}
+
+/* Display three results on desktop, but allow scrolling at smaller breakpoints */
+.post:nth-of-type(3) ~ li {
+	@include media-queries.tablet-landscape-up {
+		display: none;
+	}
+}

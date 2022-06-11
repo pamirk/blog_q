@@ -1,0 +1,87 @@
+@use '../../styles/scss/color-scheme';
+@use '../../styles/scss/fonts';
+@use '../../styles/scss/media-queries';
+@use '../../styles/scss/helpers/resets';
+@use '../../styles/scss/tokens';
+
+.container {
+	white-space: nowrap;
+	position: relative;
+	width: 100%;
+
+	&::after {
+		content: '';
+		position: absolute;
+		right: 0;
+		top: 0;
+		width: 15%;
+		height: 100%;
+		background: linear-gradient(to right, color-scheme.$background-1-transparent, color-scheme.$background-1);
+		pointer-events: none;
+	}
+}
+
+.align-center {
+	text-align: center;
+}
+
+.scroll-container {
+	overflow: auto;
+}
+
+.tablist {
+	@include resets.ul;
+
+	display: inline-flex;
+}
+
+.tab {
+	@include fonts.maison-extended-700-2;
+
+	margin: 0 12px;
+	padding: 16px 0 14px;
+	color: color-scheme.$typography-faint;
+
+	&:first-child {
+		margin-left: 0;
+	}
+
+	&[aria-current="true"] {
+		border-bottom: 2px solid color-scheme.$accent;
+		color: color-scheme.$accent;
+
+		a {
+			color: color-scheme.$accent;
+		}
+	}
+
+	a {
+		color: inherit;
+	}
+}
+
+.align-center .tab {
+	&:first-child {
+		margin-left: tokens.$size-gutter-mobile;
+
+		@include media-queries.tablet-portrait-up {
+			margin-left: tokens.$size-gutter-tablet;
+		}
+
+		@include media-queries.desktop-up {
+			margin-left: tokens.$size-gutter-desktop;
+		}
+	}
+
+	&:last-child {
+		margin-right: tokens.$size-gutter-mobile;
+
+		@include media-queries.tablet-portrait-up {
+			margin-right: tokens.$size-gutter-tablet;
+		}
+
+		@include media-queries.desktop-up {
+			margin-right: tokens.$size-gutter-desktop;
+		}
+	}
+}

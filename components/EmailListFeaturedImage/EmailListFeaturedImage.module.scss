@@ -1,0 +1,28 @@
+@use '../../@quartz/styles/scss/media-queries';
+
+.container {
+	height: 190px;
+	width: 120px;
+
+	@include media-queries.tablet-portrait-up {
+		width: 150px;
+	}
+
+	img {
+		@include media-queries.tablet-portrait-up {
+			width: 100%;
+		}
+	}
+
+	@include media-queries.tablet-landscape-up {
+		width: 30vw;
+		max-width: 350px;
+		height: 30vw;
+	}
+
+	@include media-queries.desktop-up {
+		width: 25vw;
+		max-width: 350px;
+		height: 25vw;
+	}
+}

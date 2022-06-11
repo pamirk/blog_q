@@ -1,0 +1,26 @@
+@use '../../../styles/tokens' as qzcom-tokens;
+
+$font-family-body: 'MaisonNeueMono', 'Courier New', monospace, sans-serif;
+
+@mixin body-text {
+	font-family: $font-family-body;
+	line-height: 1.5;
+	letter-spacing: -0.025em;
+}
+
+@mixin link-decoration($color, $opacity: 1) {
+	position: relative;
+	z-index: qzcom-tokens.$z-index-one;
+
+	&::before {
+		content: '';
+		position: absolute;
+		height: 0.3em;
+		width: 100%;
+		left: 0;
+		bottom: 0.025em;
+		background: $color;
+		opacity: $opacity;
+		z-index: qzcom-tokens.$z-index-minus-one;
+	}
+}

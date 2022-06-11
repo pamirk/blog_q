@@ -1,0 +1,33 @@
+@use '../../@quartz/styles/scss/borders';
+@use '../../@quartz/styles/scss/color-scheme';
+@use '../../@quartz/styles/scss/fonts';
+@use '../../@quartz/styles/scss/helpers/resets';
+@use '../../@quartz/styles/scss/media-queries';
+@use '../../@quartz/styles/scss/tokens';
+@use '../../styles/mixins/layout';
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+  border-bottom: borders.$solid-decorative;
+}
+
+.content {
+  @include layout.constrain;
+
+  margin: 30px tokens.$size-gutter-mobile;
+
+  @include media-queries.tablet-portrait-up {
+    margin: 60px auto;
+    max-width: 500px;
+  }
+}
+
+.title {
+  @include fonts.maison-800-10;
+
+  text-align: center;
+  margin: 20px auto 0;
+}

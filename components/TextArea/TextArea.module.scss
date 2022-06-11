@@ -1,0 +1,37 @@
+@use '../../@quartz/styles/scss/color-scheme';
+@use '../../@quartz/styles/scss/fonts';
+@use '../../@quartz/styles/scss/tokens';
+@use '../../styles/mixins/forms';
+
+.container {
+	@include fonts.maison;
+
+	font-weight: 400;
+	min-height: 45px;
+	position: relative;
+	word-break: break-all; /* fallback for firefox and ie */
+	word-break: break-word;
+}
+
+.input,
+.shadow-input {
+	@include forms.textarea;
+
+	margin-bottom: 0;
+	overflow: hidden;
+}
+
+.input {
+	height: 100%;
+	position: absolute;
+	top: 0;
+
+	&:disabled {
+		color: tokens.$color-gray;
+		border-color: color-scheme.$typography-faint;
+	}
+}
+
+.shadow-input {
+	visibility: hidden;
+}

@@ -1,0 +1,55 @@
+@use '../../@quartz/styles/scss/borders';
+@use '../../@quartz/styles/scss/color-scheme';
+@use '../../@quartz/styles/scss/fonts';
+@use '../../@quartz/styles/scss/helpers/resets';
+@use '../../@quartz/styles/scss/media-queries';
+@use '../../@quartz/styles/scss/tokens';
+@use '../../styles/mixins/layout';
+
+.container {
+	border-top: borders.$solid-decorative;
+	background-color: color-scheme.$background-2;
+
+	&:nth-child(even) {
+		background-color: color-scheme.$background-1;
+	}
+
+	&:last-child {
+		border-bottom: borders.$solid-decorative;
+	}
+}
+
+.spinner-container {
+	// high min-height to prevent footer from jumping up to fill space left by missing email list
+	min-height: 1000px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.tab-name {
+	@include fonts.maison-extended-700-1;
+
+	color: color-scheme.$typography;
+}
+
+.email {
+	display: block;
+	padding-top: 28px;
+	padding-bottom: 28px;
+}
+
+.block {
+	padding-left: tokens.$size-gutter-mobile;
+	padding-right: tokens.$size-gutter-mobile;
+	border-top: 0;
+
+	@include media-queries.tablet-portrait-up {
+		padding-left: 50px;
+		padding-right: 50px;
+	}
+}
+
+.constrain {
+	@include layout.constrain;
+}

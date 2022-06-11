@@ -1,0 +1,47 @@
+@use '../../@quartz/styles/scss/media-queries';
+@use '../../styles/mixins/layout';
+@use '../../styles/tokens' as qzcom-tokens;
+
+.header {
+	@include media-queries.tablet-landscape-up {
+		margin: 0 auto;
+		max-width: qzcom-tokens.$size-max-width-site;
+	}
+}
+
+.spinner {
+	align-items: center;
+	display: flex;
+	height: 70vh;
+	justify-content: center;
+}
+
+.page-container {
+	@include layout.constrain;
+
+	margin-bottom: 52px;
+	margin-top: 25px;
+
+	@include media-queries.tablet-portrait-up {
+		margin-bottom: 68px;
+		margin-top: 45px;
+	}
+
+	@include media-queries.desktop-up {
+		margin-top: 80px;
+	}
+}
+
+.list-container {
+	margin-bottom: 52px;
+	margin-top: 10px;
+
+	@include media-queries.tablet-portrait-up {
+		margin-bottom: 68px;
+		margin-top: 20px;
+	}
+
+	@include media-queries.desktop-up {
+		margin-top: 40px;
+	}
+}

@@ -1,0 +1,13 @@
+@use '../../@quartz/styles/scss/fonts';
+@use '../../@quartz/styles/scss/tokens';
+
+.button-container + .button-container {
+	margin-top: 20px;
+}
+
+.error {
+	@include fonts.maison-500-1;
+
+	margin: 10px 0;
+	color: tokens.$color-red;
+}

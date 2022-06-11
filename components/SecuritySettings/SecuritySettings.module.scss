@@ -1,0 +1,6 @@
+@use '../../@quartz/styles/scss/fonts';
+@use '../../styles/mixins/forms';
+
+.delete-description {
+	@include forms.form-field-description;
+}

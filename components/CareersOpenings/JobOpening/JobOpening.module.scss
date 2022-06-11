@@ -1,0 +1,20 @@
+@use '../../../@quartz/styles/scss/color-scheme';
+@use '../../../@quartz/styles/scss/fonts';
+
+.title {
+	@include fonts.maison-500-3;
+}
+
+.meta {
+	@include fonts.maison-500-1;
+
+	color: color-scheme.$typography-faint;
+	margin: 10px 0 0;
+}
+
+.description {
+	@include fonts.maison-500-2;
+
+	color: color-scheme.$typography-faint;
+	margin: 10px 0 0;
+}

@@ -1,0 +1,52 @@
+@use '../../@quartz/styles/scss/color-scheme';
+@use '../../@quartz/styles/scss/media-queries';
+@use '../../@quartz/styles/scss/tokens';
+@use '../../styles/tokens' as qzcom-tokens;
+
+.container {
+	position: fixed;
+	bottom: 0;
+	z-index: qzcom-tokens.$z-index-five;
+	width: 100%;
+	background-color: color-scheme.$background-2;
+	box-shadow: 0 1px 0 0 color-scheme.$background-3, 0 -1px 0 0 color-scheme.$background-3;
+
+	/* By default, hide the footer by pulling it off the screen ... */
+	transform: translateY(100%);
+	transition: transform 0.3s;
+
+	/* ... and show it on larger screens */
+	@include media-queries.tablet-landscape-up {
+		transform: none;
+	}
+
+	/* Override default styling so the footer is always visible. */
+	&.always-show {
+		transform: none;
+	}
+
+	/* Override default styling so the footer is always hidden. */
+	&.always-hide {
+		.inner-container {
+			padding: 0;
+		}
+
+		@include media-queries.tablet-landscape-up {
+			transform: initial;
+		}
+	}
+}
+
+.inner-container {
+	max-width: 520px;
+	padding: 12px tokens.$size-gutter-mobile;
+	margin: auto;
+
+	@include media-queries.tablet-portrait-up {
+		padding: tokens.$size-gutter-mobile;
+	}
+
+	@include media-queries.desktop-up {
+		padding: 24px 0;
+	}
+}

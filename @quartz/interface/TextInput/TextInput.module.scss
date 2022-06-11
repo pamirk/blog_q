@@ -1,0 +1,97 @@
+@use '../../styles/scss/borders';
+@use '../../styles/scss/color-scheme';
+@use '../../styles/scss/fonts';
+@use '../../styles/scss/helpers/positioning';
+@use '../../styles/scss/helpers/resets';
+@use '../../styles/scss/tokens';
+
+.container {
+	position: relative;
+}
+
+.input,
+.textarea {
+	@include resets.text-input;
+
+	background-color: color-scheme.$background-2;
+	border: borders.$solid-interactive;
+	color: inherit;
+	font-size: 16px;
+	transition: border-color 0.25s;
+	width: 100%;
+
+	// our resets specify &[type=search] with a border-radius of 0 to override iOS
+	// styles, so we must also use that specificity here or the reset will take precedence
+	&,
+	&[type=search] {
+		border-radius: tokens.$size-border-radius;
+	}
+
+	&[type=search] {
+		padding-left: 25px; // add space for search icon
+	}
+
+	&::placeholder {
+		color: color-scheme.$typography-faint;
+	}
+
+	&:hover,
+	&:focus {
+		border-color: color-scheme.$accent;
+	}
+
+	&::-webkit-search-cancel-button {
+		margin-right: tokens.$size-border-radius;
+	}
+
+	&[aria-invalid=true] {
+		border-color: tokens.$color-red;
+	}
+
+	&[disabled],
+	&[readonly] {
+		background-color: transparent;
+		color: tokens.$color-red;
+
+		&:hover {
+			border-color: color-scheme.$border-decorative;
+		}
+	}
+}
+
+.input {
+	display: inline-block;
+	height: 44px;
+	text-indent: 12px;
+}
+
+.textarea {
+	box-sizing: border-box;
+	line-height: 1.25;
+	padding: 12px;
+	resize: none;
+}
+
+//noinspection CssInvalidPseudoSelector
+.input::-webkit-credentials-auto-fill-button {
+	/* moves the key icon in Safari outside our login fields */
+	margin-right: -24px;
+}
+
+.hint {
+	@include fonts.maison-500-1;
+
+	color: color-scheme.$typography-faint;
+	margin-top: 4px;
+
+	&.invalid {
+		color: tokens.$color-red;
+	}
+}
+
+.search-icon {
+	@include positioning.vertical-center;
+
+	left: 16px;
+	cursor: pointer;
+}

@@ -1,0 +1,146 @@
+@use '../../@quartz/styles/scss/color-scheme';
+@use '../../@quartz/styles/scss/fonts';
+@use '../../@quartz/styles/scss/helpers/positioning';
+@use '../../@quartz/styles/scss/helpers/resets';
+@use '../../@quartz/styles/scss/media-queries';
+@use '../../@quartz/styles/scss/tokens';
+@use '../../@quartz/styles/scss/states';
+@use '../../styles/mixins/forms';
+@use '../../styles/tokens' as qzcom-tokens;
+
+.container {
+	position: relative;
+	padding-bottom: qzcom-tokens.$size-height-aspect-ratio-default;
+
+	iframe {
+		border: 0;
+
+		@include positioning.fit-to-container;
+	}
+}
+
+.overlay {
+	@include positioning.fit-to-container;
+	@include resets.button;
+
+	&:hover,
+	&:focus {
+		cursor: pointer;
+	}
+}
+
+.play-icon {
+	@include states.fade-on-hover;
+
+	--color: rgba(255, 255, 255, 0.85); // we do not want the background-color to be theme aware
+
+	&.trailer {
+		margin-right: 8px;
+		width: 16px;
+		height: 16px;
+
+		@include media-queries.tablet-portrait-up {
+			margin-right: 12px;
+			width: 20px;
+			height: 20px;
+		}
+	}
+
+	&.default {
+		height: 25%;
+		width: 25%;
+	}
+}
+
+.content-wrapper {
+	@include positioning.fit-to-container;
+
+	display: none;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	background: linear-gradient(-180deg, rgba(0, 0, 0, 0.38) 0%, rgba(0, 0, 0, 0) 35%, rgba(0, 0, 0, 0) 77%, rgba(0, 0, 0, 0.5) 100%);
+
+	&.loaded {
+		display: flex;
+	}
+}
+
+.button {
+	@include fonts.maison-800-4;
+
+	color: tokens.$color-white;
+	border-radius: 11px;
+	width: auto;
+	display: flex;
+	align-items: center;
+	background-color: rgba(tokens.$color-black, 0.3); // we do not want the background-color to be theme aware
+	border: 0;
+	padding: 12px 16px;
+	margin-bottom: 8px;
+
+	@include media-queries.desktop-up {
+		margin-bottom: 12px;
+		padding: 28px;
+	}
+}
+
+.button,
+.play-icon {
+	z-index: qzcom-tokens.$z-index-one;
+}
+
+.subscribe-text {
+	@include fonts.maison-800-3;
+
+	color: tokens.$color-white; // needs to be white to show against video backgrounds
+}
+
+.video-data-container {
+	text-align: left;
+	position: absolute;
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+	color: tokens.$color-white; // needs to be white to show against video backgrounds
+	bottom: 12px;
+
+	@include media-queries.tablet-portrait-up {
+		bottom: 16px;
+	}
+
+	@include media-queries.desktop-up {
+		bottom: 24px;
+	}
+}
+
+.title {
+	@include fonts.maison-800-6;
+
+	width: 86%;
+	margin-left: 12px;
+
+	@include media-queries.tablet-portrait-up {
+		margin-left: 16px;
+	}
+
+	@include media-queries.desktop-up {
+		margin-left: 24px;
+	}
+}
+
+.duration {
+	@include fonts.maison-800-3;
+
+	letter-spacing: 1px;
+	align-self: flex-end;
+	margin-right: 12px;
+
+	@include media-queries.tablet-portrait-up {
+		margin-right: 16px;
+	}
+
+	@include media-queries.desktop-up {
+		margin-right: 24px;
+	}
+}

@@ -1,0 +1,57 @@
+@use '../../@quartz/styles/scss/color-scheme';
+@use '../../@quartz/styles/scss/fonts';
+@use '../../@quartz/styles/scss/media-queries';
+@use '../../@quartz/styles/scss/tokens';
+@use '../../@quartz/styles/scss/helpers/a11y';
+@use '../../styles/mixins/layout';
+
+.container {
+	width: 100%;
+	padding: 0;
+}
+
+.title {
+	@include fonts.maison-800-10;
+
+	margin: 0 auto;
+	max-width: 80%;
+	color: color-scheme.$typography;
+}
+
+.sr-title {
+	@include a11y.visually-hidden;
+}
+
+.media-container video {
+	width: 100%;
+	display: block;
+}
+
+.description,
+.credit {
+	@include layout.constrain;
+
+	margin: 25px 0;
+	text-align: center;
+	color: color-scheme.$typography-faint;
+}
+
+.description {
+	@include fonts.maison-500-3;
+
+	margin-right: tokens.$size-gutter-mobile;
+	margin-left: tokens.$size-gutter-mobile;
+
+	@include media-queries.tablet-portrait-up {
+		max-width: 700px;
+		margin-right: auto;
+		margin-left: auto;
+	}
+}
+
+.credit {
+	@include fonts.maison-500-1;
+
+	text-transform: uppercase;
+	margin: 25px auto;
+}

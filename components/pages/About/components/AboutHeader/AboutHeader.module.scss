@@ -1,0 +1,26 @@
+@use '../../../../../@quartz/styles/scss/fonts';
+@use '../../../../../@quartz/styles/scss/media-queries';
+
+.content {
+	@include fonts.pt-serif-400-1;
+
+	display: flex;
+	flex-direction: column;
+	column-gap: 45px;
+
+	p {
+		margin-top: 0;
+	}
+
+	ul {
+		margin-top: 0;
+	}
+
+	div {
+		flex: 1 1 0;
+	}
+
+	@include media-queries.tablet-landscape-up {
+		flex-direction: row;
+	}
+}

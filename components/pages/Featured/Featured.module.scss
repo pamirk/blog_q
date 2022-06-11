@@ -1,0 +1,20 @@
+@use '../../../@quartz/styles/scss/media-queries';
+@use '../../../@quartz/styles/scss/helpers/resets';
+@use '../../../styles/mixins/layout';
+
+.container {
+	overflow: hidden;
+}
+
+.content {
+	@include layout.constrain;
+	@include resets.ul;
+
+	margin-top: 30px;
+	margin-bottom: 30px;
+
+	@include media-queries.tablet-portrait-up {
+		margin-top: 60px;
+		margin-bottom: 60px;
+	}
+}

@@ -1,0 +1,137 @@
+@use '../../@quartz/styles/scss/color-scheme';
+@use '../../@quartz/styles/scss/fonts';
+@use '../../@quartz/styles/scss/media-queries';
+@use '../../@quartz/styles/scss/helpers/resets';
+@use '../../styles/mixins/forms';
+@use '../../styles/tokens';
+
+.container {
+	margin: auto auto tokens.$size-height-spacing-page-end auto;
+
+	&.is-promo {
+		margin-top: 20px;
+
+		@include media-queries.tablet-portrait-up {
+			margin-top: 30px;
+		}
+
+		@include media-queries.tablet-landscape-up {
+			margin-top: 50px;
+		}
+	}
+}
+
+.constrained {
+	max-width: 980px;
+}
+
+.field-group {
+	@include resets.fieldset;
+
+	margin-bottom: 20px;
+}
+
+.field {
+	margin-bottom: 24px;
+}
+
+.header {
+	width: 100%;
+	text-align: left;
+	margin: 0 auto 40px;
+	color: color-scheme.$typography;
+
+	/* This max-width is somewhat arbitrary; it accommodates longer headlines in
+	an a/b test. */
+	max-width: 620px;
+}
+
+.title {
+	margin: 0 0 12px;
+	max-width: 620px;
+	text-align: left;
+
+	@include fonts.maison-800-6;
+}
+
+.small-title {
+	@include fonts.maison-800-6;
+
+	margin-bottom: 30px;
+}
+
+.description {
+	@include fonts.maison-500-4;
+
+	color: color-scheme.$typography-faint;
+	margin: 0 auto;
+	max-width: 620px;
+	line-height: 1.3;
+
+	@include media-queries.tablet-landscape-up {
+		margin-top: 20px;
+	}
+}
+
+.disclaimer,
+.subscription-copy,
+.delete-description {
+	@include fonts.maison-500-1;
+
+	color: color-scheme.$typography-faint;
+}
+
+.form-actions {
+	width: 100%;
+	margin: auto;
+
+	/* Vertical button spacing when there's more than one */
+	button + button {
+		margin-top: 15px;
+	}
+}
+
+.secondary-button-container {
+	margin-top: 10px;
+}
+
+.social-login {
+	@include fonts.maison-500-1; // so "1em" is correct
+
+	width: 100%;
+	max-width: 620px;
+	margin: auto;
+	padding-bottom: 1em;
+}
+
+.social-login-label {
+	@include forms.form-field-title;
+
+	display: block;
+	margin: 20px 0 10px 0;
+}
+
+.confirmation-step-container {
+	max-width: 620px;
+	margin: auto;
+	margin-bottom: 40px;
+}
+
+.article-paywall-guides-container {
+	margin-bottom: 20px;
+}
+
+.forgot-password {
+	margin-top: 1em;
+}
+
+.spinner {
+	text-align: center;
+}
+
+.login-help {
+	@include fonts.maison-500-1;
+
+	max-width: 620px;
+	margin: auto;
+}

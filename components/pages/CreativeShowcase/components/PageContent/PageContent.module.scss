@@ -1,0 +1,23 @@
+@use '../../../../../@quartz/styles/scss/fonts';
+@use '../../../../../styles/tokens' as qzcom-tokens;
+
+.container {
+	max-width: qzcom-tokens.$size-max-width-content-article;
+	margin: auto;
+
+	p {
+		@include fonts.pt-serif-400-1;
+	}
+
+	h2 {
+		@include fonts.maison-800-5;
+	}
+
+	p + h2 {
+		margin-top: 3em;
+	}
+}
+
+.spinner {
+	text-align: center;
+}

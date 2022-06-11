@@ -1,0 +1,52 @@
+@use '../../@quartz/styles/scss/borders';
+@use '../../@quartz/styles/scss/color-scheme';
+@use '../../@quartz/styles/scss/tokens';
+@use '../../styles/mixins/forms';
+
+.container {
+	margin-bottom: 30px;
+}
+
+.credit-card {
+	background-color: color-scheme.$background-2;
+	height: 45px;
+	border-radius: tokens.$size-border-radius;
+	border: borders.$solid-interactive;
+	padding: 0 15px;
+	display: flex;
+	flex-flow: column;
+	align-items: center;
+	justify-content: center;
+
+	input::placeholder {
+		color: color-scheme.$typography-faint;
+	}
+
+	> div {
+		width: 100%;
+	}
+}
+
+/* stylelint-disable */
+.credit-card:hover,
+.StripeElement--focus {
+	border-color: color-scheme.$accent;
+}
+/* stylelint-enable */
+
+.label {
+	@include forms.form-field-title;
+
+	display: block;
+}
+
+.error,
+.subtext {
+	@include forms.form-field-description;
+
+	margin-top: 4px;
+}
+
+.error {
+	color: tokens.$color-red;
+}

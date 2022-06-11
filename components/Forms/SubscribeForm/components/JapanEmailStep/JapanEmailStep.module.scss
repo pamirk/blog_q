@@ -1,0 +1,90 @@
+@use '../../../../../@quartz/styles/scss/color-scheme';
+@use '../../../../../@quartz/styles/scss/fonts';
+@use '../../../../../@quartz/styles/scss/media-queries';
+@use '../../../../../@quartz/styles/scss/helpers/resets';
+@use '../../../../../@quartz/styles/scss/tokens';
+@use '../../../../../styles/mixins/forms';
+@use '../../../../../styles/tokens' as qzcom-tokens;
+
+.container {
+	margin: auto;
+}
+
+.signup-container {
+	margin: 0 -#{tokens.$size-gutter-mobile} 0 auto;
+	display: flex;
+	justify-content: space-between;
+	max-width: 1280px;
+	overflow-x: hidden;
+
+	@include media-queries.tablet-portrait-up {
+		margin: 0 -#{tokens.$size-gutter-tablet} 0 auto;
+	}
+
+	@include media-queries.tablet-landscape-up {
+		margin: 0 auto;
+		align-items: center;
+	}
+}
+
+.signup-text {
+	margin: 120px 0 12px 0;
+
+	@include media-queries.tablet-portrait-up {
+		margin: 120px 0 0 0;
+	}
+
+	@include media-queries.tablet-landscape-up {
+		margin-top: 0;
+	}
+}
+
+.signup-preview {
+	width: 80px;
+
+	@include media-queries.tablet-portrait-up {
+		width: auto;
+	}
+}
+
+.perk-label {
+	@include forms.form-field-title;
+}
+
+.hints {
+	@include fonts.maison-800-2;
+
+	color: color-scheme.$typography-faint;
+	margin: 20px 0;
+
+	@include media-queries.tablet-portrait-up {
+		margin: 30px 40px;
+	}
+}
+
+.perks-container {
+	margin-bottom: 40px;
+}
+
+.lower {
+	margin: auto;
+	max-width: 640px;
+}
+
+.email-ctas {
+	@include resets.ul;
+
+	margin: qzcom-tokens.$size-height-spacing-block 0;
+}
+
+.email-cta {
+	margin: qzcom-tokens.$size-height-spacing-block 0;
+
+	&:last-child {
+		margin-bottom: 0;
+	}
+}
+
+.disclaimer {
+	@include forms.disclaimer;
+}

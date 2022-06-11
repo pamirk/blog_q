@@ -1,0 +1,8 @@
+@use '../../@quartz/styles/scss/color-scheme';
+
+.container {
+	line-height: 1.5;
+	margin-bottom: 30px;
+	color: color-scheme.$typography-faint;
+	font-style: italic;
+}

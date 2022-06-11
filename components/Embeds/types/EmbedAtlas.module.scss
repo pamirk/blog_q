@@ -1,0 +1,8 @@
+@use '../../../@quartz/styles/scss/tokens';
+
+.embed > img,
+.embed > iframe:only-child {
+	border: 4px solid tokens.$color-off-white;
+	border-radius: 4px;
+	width: 100%;
+}

@@ -1,0 +1,15 @@
+@use '../../styles/tokens' as qzcom-tokens;
+@use '../../@quartz/styles/scss/fonts';
+@use '../../@quartz/styles/scss/color-scheme';
+
+.container {
+	@include fonts.maison-500-4;
+
+	max-width: qzcom-tokens.$size-max-width-content-article;
+	margin: auto;
+	color: color-scheme.$typography-faint;
+}
+
+.button {
+	margin: 24px auto;
+}

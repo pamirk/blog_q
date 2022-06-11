@@ -1,0 +1,8 @@
+@use '../../styles/scss/color-scheme';
+@use '../../styles/scss/fonts';
+
+.container {
+	@include fonts.maison-500-1;
+
+	color: color-scheme.$typography-faint;
+}

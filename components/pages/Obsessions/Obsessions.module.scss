@@ -1,0 +1,8 @@
+@use '../../../styles/mixins/layout';
+@use '../../../styles/tokens';
+
+.container {
+	@include layout.constrain;
+
+	margin-bottom: tokens.$size-height-spacing-section;
+}

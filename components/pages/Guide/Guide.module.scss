@@ -1,0 +1,21 @@
+@use '../../../@quartz/styles/scss/borders';
+@use '../../../@quartz/styles/scss/fonts';
+@use '../../../styles/mixins/layout';
+@use '../../../styles/tokens';
+
+.spinner {
+	text-align: center;
+	margin: tokens.$size-height-spacing-section 0;
+}
+
+.essentials {
+	@include fonts.maison-500-4;
+	@include layout.constrain(tokens.$size-max-width-content-article);
+
+	margin-top: tokens.$size-height-spacing-section;
+	margin-bottom: tokens.$size-height-spacing-section;
+}
+
+.tab-container {
+	border-bottom: borders.$solid-decorative;
+}

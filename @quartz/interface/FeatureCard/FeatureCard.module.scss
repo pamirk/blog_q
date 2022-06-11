@@ -1,0 +1,37 @@
+@use '../../styles/scss/tokens';
+@use '../../styles/scss/helpers/positioning';
+@use '../../styles/scss/media-queries';
+
+.image-container {
+	position: relative;
+	border-radius: tokens.$size-border-radius;
+	margin-bottom: 12px;
+	overflow: hidden;
+}
+
+.play-icon {
+	@include positioning.center;
+
+	height: 32%;
+	width: auto;
+}
+
+.small {
+	max-width: 220px;
+}
+
+.large {
+	max-width: 666px;
+}
+
+.small-portrait {
+	max-width: 285px;
+}
+
+.large-portrait {
+	max-width: 382px;
+
+	@include media-queries.desktop-up {
+		max-width: 666px;
+	}
+}

@@ -1,0 +1,31 @@
+@use '../../@quartz/styles/scss/color-scheme';
+@use '../../@quartz/styles/scss/helpers/a11y';
+@use '../../@quartz/styles/scss/media-queries';
+@use '../../@quartz/styles/scss/tokens';
+
+.secondary-text {
+	@include a11y.visually-hidden;
+
+	@include media-queries.tablet-landscape-up {
+		@include a11y.visually-hidden;
+	}
+}
+
+.cta-text {
+	@include a11y.visually-hidden;
+
+	color: color-scheme.$accent;
+
+	@include media-queries.tablet-portrait-up {
+		@include a11y.visually-hidden;
+	}
+
+	&::before {
+		color: tokens.$color-white;
+		opacity: 0.7;
+		content: '|';
+		//noinspection CssInvalidPropertyValue
+		display: 'inline-block';
+		margin: 0 14px;
+	}
+}

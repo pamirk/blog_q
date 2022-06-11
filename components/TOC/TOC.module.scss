@@ -1,0 +1,72 @@
+@use '../../@quartz/styles/scss/borders';
+@use '../../@quartz/styles/scss/color-scheme';
+@use '../../@quartz/styles/scss/fonts';
+@use '../../@quartz/styles/scss/media-queries';
+@use '../../@quartz/styles/scss/helpers/resets';
+@use '../../styles/tokens' as qzcom-tokens;
+
+.slim-container {
+	margin: qzcom-tokens.$size-height-spacing-list-item 0;
+}
+
+.container {
+	margin: qzcom-tokens.$size-height-spacing-section 0;
+}
+
+.title {
+	@include fonts.maison-800-5;
+
+	margin-top: 0;
+}
+
+.nav {
+	text-align: left;
+	display: grid;
+	grid-template-columns: 1fr;
+
+	@include media-queries.tablet-landscape-up {
+		grid-template-columns: 1fr 1fr 1fr;
+	}
+}
+
+.container-topic {
+	margin-bottom: 20px;
+
+	@include media-queries.tablet-landscape-up {
+		border-bottom: 0;
+		margin-right: 25px;
+	}
+}
+
+.border-bottom {
+	padding-bottom: 20px;
+	border-bottom: borders.$solid-decorative;
+}
+
+.topic {
+	@include fonts.maison-extended-700-1;
+
+	color: color-scheme.$typography-faint;
+	margin-bottom: 12px;
+}
+
+.list {
+	@include fonts.maison-800-2;
+	@include resets.ul;
+
+	padding-right: 25px;
+	columns: 2;
+
+	@include media-queries.tablet-landscape-up {
+		columns: 1;
+	}
+}
+
+.brief {
+	margin-bottom: 6px;
+}
+
+.link {
+	color: inherit;
+	display: inline-block;
+}

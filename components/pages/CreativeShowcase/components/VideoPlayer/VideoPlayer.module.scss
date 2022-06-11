@@ -1,0 +1,51 @@
+@use '../../../../../@quartz/styles/scss/color-scheme';
+@use '../../../../../@quartz/styles/scss/fonts';
+@use '../../../../../@quartz/styles/scss/media-queries';
+@use '../../../../../@quartz/styles/scss/helpers/positioning';
+@use '../../../../../@quartz/styles/scss/helpers/resets';
+@use '../../../../../@quartz/styles/scss/tokens';
+@use '../../../../../@quartz/styles/scss/states';
+@use '../../creative-showcase.module';
+
+.poster {
+	@include resets.button;
+
+	width: 100%;
+	display: block;
+	margin-bottom: 35px;
+	position: relative;
+	cursor: pointer;
+}
+
+.poster-image {
+	border-radius: tokens.$size-border-radius;
+	overflow: hidden;
+
+	@include media-queries.tablet-portrait-up {
+		margin-right: 120px;
+	}
+}
+
+.poster-label {
+	@include states.fade-on-hover;
+
+	font-family: creative-showcase.$font-family-body;
+	color: color-scheme.$accent;
+	display: flex;
+	align-items: center;
+	right: 0;
+	margin-top: 1em;
+
+	@include media-queries.tablet-portrait-up {
+		@include positioning.vertical-center;
+
+		margin-top: 0;
+	}
+}
+
+.play-icon {
+	--color: #{color-scheme.$accent};
+
+	height: 16px;
+	margin-right: 0.5em;
+}

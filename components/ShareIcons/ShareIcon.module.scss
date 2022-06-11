@@ -1,0 +1,38 @@
+@use '../../@quartz/styles/scss/borders';
+@use '../../@quartz/styles/scss/color-scheme';
+@use '../../@quartz/styles/scss/media-queries';
+@use '../../@quartz/styles/scss/tokens';
+
+.container {
+	--color: #{color-scheme.$typography};
+
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-grow: 1;
+	height: 45px;
+	width: 45px;
+	border-radius: tokens.$size-border-radius;
+	background-color: color-scheme.$background-3;
+	padding: 0;
+	margin: 0 6px;
+
+	svg {
+		width: auto;
+		height: 20px;
+	}
+
+	&:first-child {
+		margin-left: 0;
+	}
+
+	&:last-child {
+		margin-right: 0;
+	}
+}
+
+.whatsapp {
+	@include media-queries.tablet-portrait-up {
+		display: none;
+	}
+}

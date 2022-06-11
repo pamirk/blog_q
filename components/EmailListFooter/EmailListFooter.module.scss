@@ -1,0 +1,45 @@
+@use '../../@quartz/styles/scss/fonts';
+@use '../../@quartz/styles/scss/media-queries';
+@use '../../@quartz/styles/scss/tokens';
+@use '../../styles/mixins/layout';
+
+.container {
+	@include layout.constrain;
+
+	display: flex;
+	flex-direction: column;
+	padding: 10px 0;
+
+	@include media-queries.tablet-landscape-up {
+		padding: 20px 0;
+	}
+}
+
+.buttons {
+	display: flex;
+
+	> button:nth-child(2) {
+		margin-left: 10px;
+
+		@include media-queries.tablet-landscape-up {
+			margin-left: 20px;
+		}
+	}
+
+	button {
+		max-width: 400px;
+		font-size: 16px;
+	}
+
+	@include media-queries.tablet-landscape-up {
+		justify-content: flex-start;
+	}
+}
+
+.error {
+	font-weight: normal;
+	font-size: 12px;
+	align-self: flex-start;
+	margin-top: 4px;
+	color: tokens.$color-red;
+}

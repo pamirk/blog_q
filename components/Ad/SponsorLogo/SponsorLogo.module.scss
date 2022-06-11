@@ -1,0 +1,60 @@
+@use '../../../@quartz/styles/scss/color-scheme';
+@use '../../../@quartz/styles/scss/media-queries';
+@use '../../../@quartz/styles/scss/fonts';
+@use '../../../@quartz/styles/scss/tokens';
+
+.container {
+	align-items: center;
+	font-size: 12px;
+	justify-content: center;
+	text-transform: uppercase;
+	display: none;
+
+	&.visible {
+		display: block;
+	}
+}
+
+.sponsor-text {
+	min-width: 120px;
+	text-align: right;
+}
+
+.context-term-header {
+	flex-flow: row;
+
+	&.visible {
+		display: flex;
+		margin: 30px auto 0;
+	}
+
+	.sponsor-text {
+		@include fonts.maison-extended-700-2;
+
+		color: color-scheme.$typography-faint;
+		margin-right: 8px;
+	}
+}
+
+.context-obsession {
+	&.container {
+		height: auto;
+		justify-content: flex-start;
+
+		@include media-queries.tablet-portrait-up {
+			justify-content: center;
+		}
+	}
+
+	&.visible {
+		margin: 50px 0 0 0;
+	}
+
+	.sponsor-text {
+		@include fonts.maison-extended-700-2;
+
+		margin-right: 8px;
+		min-width: auto;
+		color: color-scheme.$typography-faint;
+	}
+}

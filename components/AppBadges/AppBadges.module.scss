@@ -1,0 +1,22 @@
+@use '../../@quartz/styles/scss/media-queries';
+
+.container {
+	display: inline-block;
+	margin: 20px 0 0;
+
+	@include media-queries.tablet-portrait-up {
+		margin-top: 15px;
+	}
+}
+
+.badge {
+	margin: 0 15px 0 0;
+
+	> img {
+		height: 45px;
+	}
+
+	@include media-queries.tablet-portrait-up {
+		margin-right: 10px;
+	}
+}

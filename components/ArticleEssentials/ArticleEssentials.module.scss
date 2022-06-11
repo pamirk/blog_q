@@ -1,0 +1,50 @@
+@use '../../@quartz/styles/scss/borders';
+@use '../../@quartz/styles/scss/color-scheme';
+@use '../../@quartz/styles/scss/fonts';
+@use '../../@quartz/styles/scss/helpers/resets';
+@use '../../@quartz/styles/scss/media-queries';
+@use '../../styles/mixins/layout';
+@use '../../styles/mixins/print';
+@use '../../styles/tokens';
+
+.container {
+	@include print.hide-when-printing;
+	@include fonts.maison-500-3;
+
+	background: color-scheme.$background-2;
+	margin-top: tokens.$size-height-spacing-section;
+	padding: tokens.$size-height-spacing-block 0 tokens.$size-height-spacing-section;
+}
+
+.contents {
+	@include layout.constrain(tokens.$size-max-width-content-article);
+}
+
+.section-heading {
+	@include fonts.maison-extended-700-2;
+
+	margin: 0 0 tokens.$size-height-spacing-heading;
+	padding-bottom: tokens.$size-height-spacing-heading;
+	border-bottom: borders.$solid-decorative;
+	color: color-scheme.$typography-faint;
+}
+
+.intro {
+	margin: 0 0 tokens.$size-height-spacing-block;
+}
+
+.essentials {
+	@include resets.ul;
+
+	margin-top: tokens.$size-height-spacing-block;
+}
+
+.essential + .essential {
+	margin-top: tokens.$size-height-spacing-block-mobile;
+	padding-top: tokens.$size-height-spacing-block-mobile;
+
+	@include media-queries.desktop-up {
+		margin-top: tokens.$size-height-spacing-block;
+		padding-top: tokens.$size-height-spacing-block;
+	}
+}

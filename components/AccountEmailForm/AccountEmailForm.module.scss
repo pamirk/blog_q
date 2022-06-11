@@ -1,0 +1,33 @@
+@use '../../@quartz/styles/scss/media-queries';
+@use '../../styles/mixins/forms';
+
+.inline {
+	&.field {
+		flex-grow: 2;
+		margin-bottom: 10px;
+
+		@include media-queries.desktop-up {
+			margin-right: 12px;
+			margin-bottom: 0;
+		}
+	}
+
+	&.buttons {
+		min-width: 200px;
+	}
+
+	&.disclaimer {
+		width: 100%;
+	}
+}
+
+.block.field {
+	padding-bottom: 15px;
+}
+
+.error {
+	@include forms.error;
+
+	margin-bottom: 20px;
+	width: 100%;
+}

@@ -1,0 +1,20 @@
+@use '../../../../../@quartz/styles/scss/color-scheme';
+@use '../../../../../@quartz/styles/scss/fonts';
+@use '../../../../../@quartz/styles/scss/helpers/resets';
+@use '../../creative-showcase.module';
+
+.emphasized {
+	@include fonts.maison-extended;
+	@include creative-showcase.link-decoration(color-scheme.$border-decorative);
+
+	font-weight: 700;
+}
+
+.client-list-container {
+	margin: 40px 0;
+}
+
+.links {
+	@include resets.ul;
+	@include fonts.pt-serif-400-1;
+}

@@ -1,0 +1,95 @@
+@use '../../../../../@quartz/styles/scss/borders';
+@use '../../../../../@quartz/styles/scss/color-scheme';
+@use '../../../../../@quartz/styles/scss/fonts';
+@use '../../../../../@quartz/styles/scss/media-queries';
+@use '../../../../../styles/mixins/images';
+@use '../../../../../styles/tokens' as qzcom-tokens;
+
+.container {
+	display: flex;
+	align-items: flex-start;
+	color: inherit;
+	box-sizing: border-box;
+	padding: 20px 0;
+	margin: 0 25px;
+	border-bottom: borders.$solid-decorative;
+
+	@include media-queries.tablet-portrait-up {
+		padding: 40px 0;
+	}
+
+	@include media-queries.tablet-landscape-up {
+		padding: 30px 0;
+		margin: 0;
+	}
+
+	&:first-of-type {
+		padding-top: 0;
+	}
+
+	&:last-of-type {
+		padding-bottom: 60px;
+		border-bottom: 0;
+
+		@include media-queries.tablet-landscape-up {
+			padding-bottom: 30px;
+		}
+
+		&::after {
+			display: none;
+
+			@include media-queries.tablet-landscape-up {
+				display: block;
+			}
+		}
+	}
+}
+
+.hero {
+	width: 75px;
+	margin: 0 15px 0 0;
+	flex-shrink: 0;
+	flex-grow: 0;
+
+	@include images.work-hero;
+
+	@include media-queries.tablet-portrait-up {
+		width: 140px;
+		margin: 0 20px 0 0;
+	}
+
+	.placeholder {
+		padding-bottom: 100%;
+
+		@include media-queries.tablet-portrait-up {
+			padding-bottom: qzcom-tokens.$size-height-aspect-ratio-default;
+		}
+	}
+}
+
+.content {
+	overflow: hidden;
+}
+
+.kicker {
+	@include fonts.maison-extended-700-1;
+
+	margin: 0 0 4px;
+}
+
+.title {
+	@include fonts.maison-800-4;
+
+	margin: 0 0 10px;
+}
+
+.summary {
+	display: none;
+
+	@include media-queries.tablet-portrait-up {
+		display: block;
+		font-size: 13px;
+		line-height: 1.15;
+		color: color-scheme.$typography-faint;
+	}
+}

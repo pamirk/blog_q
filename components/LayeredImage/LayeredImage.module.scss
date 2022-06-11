@@ -1,0 +1,17 @@
+.container {
+	position: relative;
+}
+
+.layer {
+	position: absolute;
+	width: 100%;
+	top: 0;
+
+	/*
+		The first layer is statically positioned so as to
+		provide the parent with a width and height.
+	*/
+	&:first-child {
+		position: static;
+	}
+}

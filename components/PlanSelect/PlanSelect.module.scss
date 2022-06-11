@@ -1,0 +1,13 @@
+@use '../../@quartz/styles/scss/fonts';
+@use '../../styles/mixins/forms';
+
+.inner {
+	display: flex;
+	min-height: 85px;
+}
+
+.label {
+	@include forms.form-field-title;
+
+	display: block;
+}

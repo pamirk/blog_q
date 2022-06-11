@@ -1,0 +1,110 @@
+@use '../../@quartz/styles/scss/borders';
+@use '../../@quartz/styles/scss/color-scheme';
+@use '../../@quartz/styles/scss/fonts';
+@use '../../@quartz/styles/scss/helpers/resets';
+@use '../../@quartz/styles/scss/media-queries';
+@use '../../@quartz/styles/scss/tokens';
+@use '../../styles/tokens' as qzcom-tokens;
+
+.container {
+	box-sizing: border-box;
+	z-index: qzcom-tokens.$z-index-four;
+	position: fixed;
+	height: qzcom-tokens.$size-height-nav-mobile;
+	left: 0;
+	top: qzcom-tokens.$size-height-nav-mobile;
+	transition: top 0.3s;
+	background-color: color-scheme.$background-1;
+	border-bottom: borders.$solid-decorative;
+	overflow-x: auto;
+	overflow-y: hidden;
+	width: 100%;
+
+	@include media-queries.tablet-landscape-up {
+		position: sticky;
+		top: 40px;
+		height: auto;
+		border-bottom: 0;
+		z-index: qzcom-tokens.$z-index-three;
+		background: none;
+		transition: none;
+		left: tokens.$size-gutter-desktop;
+		width: fit-content;
+		float: left;
+	}
+
+	&::before {
+		content: '';
+		position: fixed;
+		height: qzcom-tokens.$size-height-nav-mobile - 1px;
+		width: 100%;
+		pointer-events: none;
+		z-index: qzcom-tokens.$z-index-one;
+		background-image: linear-gradient(90deg, color-scheme.$background-1-transparent 80%, color-scheme.$background-1 100%);
+	}
+
+	/* a little bit of extra padding on the end so that the final element isn't covered by the linear gradient */
+	&::after {
+		content: ' ';
+		padding: 0 10px;
+	}
+
+	&::before,
+	&::after {
+		@include media-queries.tablet-landscape-up {
+			display: none;
+		}
+	}
+
+	@include media-queries.tablet-landscape-up {
+		padding-right: 20px;
+		top: 80px;
+		width: auto;
+	}
+}
+
+.app-container {
+	top: 0;
+}
+
+.subnav-list {
+	@include resets.ul;
+
+	display: flex;
+
+	@include media-queries.tablet-landscape-up {
+		display: block;
+	}
+}
+
+.subnav-item {
+	@include fonts.maison-500-3;
+
+	margin: 0 tokens.$size-gutter-mobile;
+	color: color-scheme.$typography-faint;
+	cursor: pointer;
+	height: auto;
+	line-height: 1.2;
+	padding: 15px 0;
+	display: inline-block;
+	white-space: nowrap;
+
+	@include media-queries.tablet-portrait-up {
+		margin: 0 tokens.$size-gutter-tablet;
+	}
+
+	@include media-queries.tablet-landscape-up {
+		margin: 0 5px 20px 0;
+		padding: 0;
+		flex-shrink: 1;
+	}
+
+	&.selected {
+		color: color-scheme.$accent;
+		border-bottom: 3px solid color-scheme.$accent;
+
+		@include media-queries.tablet-landscape-up {
+			border-bottom: 0;
+		}
+	}
+}

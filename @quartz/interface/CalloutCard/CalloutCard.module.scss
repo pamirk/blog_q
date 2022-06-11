@@ -1,0 +1,16 @@
+@use '../../styles/scss/color-scheme';
+@use '../../styles/scss/media-queries';
+@use '../../styles/scss/fonts';
+@use '../../styles/scss/tokens';
+
+.container {
+	@include fonts.maison-500-3;
+
+	background-color: color-scheme.$background-4;
+	border-radius: tokens.$size-border-radius;
+	padding: 16px;
+
+	@include media-queries.tablet-portrait-up {
+		padding: 32px;
+	}
+}

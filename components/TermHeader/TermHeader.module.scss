@@ -1,0 +1,94 @@
+@use '../../@quartz/styles/scss/borders';
+@use '../../@quartz/styles/scss/color-scheme';
+@use '../../@quartz/styles/scss/fonts';
+@use '../../@quartz/styles/scss/helpers/positioning';
+@use '../../@quartz/styles/scss/media-queries';
+@use '../../styles/tokens' as qzcom-tokens;
+
+.container {
+	align-items: center;
+	display: flex;
+	justify-content: center;
+	position: relative;
+	text-align: center;
+	padding: (qzcom-tokens.$size-height-nav-mobile + 20px) 0 35px;
+	border-bottom: borders.$solid-decorative;
+
+	@include media-queries.tablet-portrait-up {
+		padding: (qzcom-tokens.$size-height-nav-tablet + 45px) 0 60px;
+	}
+
+	&.has-image {
+		height: 430px;
+		padding: 0;
+		border-bottom: 0;
+
+		@include media-queries.tablet-portrait-up {
+			height: auto;
+			padding: 250px 0;
+		}
+
+		@include media-queries.tablet-landscape-up {
+			padding: 206px 0 280px;
+		}
+	}
+}
+
+.featured-image {
+	@include positioning.fit-to-container;
+
+	background-position: center;
+	background-size: cover;
+	opacity: 0.4;
+}
+
+.header {
+	padding: 0 25px;
+	z-index: qzcom-tokens.$z-index-one;
+}
+
+.title {
+	@include fonts.maison-800-10;
+
+	color: color-scheme.$typography;
+	margin: 0;
+
+	&.has-description {
+		margin-bottom: 20px;
+
+		@include media-queries.tablet-portrait-up {
+			margin-bottom: 25px;
+		}
+
+		@include media-queries.tablet-portrait-up {
+			margin-bottom: 40px;
+		}
+	}
+}
+
+.description {
+	color: color-scheme.$typography-faint;
+	margin: 0;
+
+	@include fonts.maison-500-3;
+
+	@include media-queries.tablet-portrait-up {
+		max-width: 480px;
+	}
+
+	@include media-queries.tablet-landscape-up {
+		max-width: 620px;
+		margin: 0 auto;
+	}
+}
+
+.credit {
+	bottom: 8px;
+	left: 0;
+	position: absolute;
+	right: 0;
+	color: color-scheme.$typography-faint;
+	text-transform: uppercase;
+
+	@include fonts.maison-500-1;
+}

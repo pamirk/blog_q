@@ -1,0 +1,64 @@
+@use '../../styles/scss/borders';
+@use '../../styles/scss/color-scheme';
+@use '../../styles/scss/helpers/resets';
+@use '../../styles/scss/tokens';
+
+.container {
+	cursor: pointer;
+	display: flex;
+}
+
+.input {
+	@include resets.checkbox;
+
+	height: 16px;
+	width: 16px;
+	margin-right: 12px;
+	border-radius: 2px;
+	border: borders.$solid-interactive;
+	background-color: color-scheme.$background-2;
+	flex-shrink: 0;
+	flex-grow: 0;
+	cursor: pointer;
+	transition-duration: tokens.$time-slowly;
+	transition-property: background-color, border-color;
+
+	&:checked {
+		background-repeat: no-repeat;
+		background-position: 50%;
+		background-size: 75%;
+		background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMiIgaGVpZ2h0PSIxMSIgdmlld0JveD0iMTgzIDE4IDEyIDExIj48cGF0aCBzdHlsZT0iZmlsbDp2YXIoLS1jb2xvciwgI2ZmZikiIGZpbGwtcnVsZT0iZXZlbm9kZCIgZD0iTTE5My4yOTQgMThsLTYuMzUgNi45NjgtMi4zMzUtMi40OEwxODMgMjQuMjAxbDMuODYgNC4xMTNMMTk1IDE5LjU4eiIvPjwvc3ZnPg==');
+		background-color: color-scheme.$accent;
+		border-color: color-scheme.$accent;
+	}
+
+	&:focus,
+	&:hover {
+		color: color-scheme.$accent;
+		border-color: color-scheme.$accent;
+	}
+
+	&[aria-invalid=true] {
+		&,
+		&:checked,
+		&:hover {
+			border-color: tokens.$color-red;
+		}
+	}
+
+	&:disabled,
+	&:disabled:hover {
+		opacity: 0.5;
+		border: borders.$solid-interactive;
+	}
+
+	&.large {
+		height: 20px;
+		width: 20px;
+	}
+}
+
+.label {
+	line-height: 1;
+	width: 100%;
+}

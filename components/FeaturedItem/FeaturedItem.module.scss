@@ -1,0 +1,248 @@
+@use '../../@quartz/styles/scss/media-queries';
+@use '../../styles/mixins/layout';
+@use '../../styles/tokens' as qzcom-tokens;
+
+$h-overflow: 80px;
+
+$large-circle-h-offset: -120px;
+$medium-circle-v-offset: -500px;
+$small-circle-v-offset: -50px;
+$small-circle-h-offset: 150px;
+
+.container {
+	position: relative;
+	margin-bottom: 10px;
+
+	@include media-queries.tablet-portrait-up {
+		margin-bottom: -20px;
+	}
+
+	@include media-queries.tablet-landscape-up {
+		margin: 0;
+	}
+
+	&:nth-of-type(odd) {
+		.link {
+			margin-left: -1 * $h-overflow;
+		}
+
+		.image {
+			margin-right: 20px;
+
+			@include media-queries.tablet-portrait-up {
+				margin-right: 50px;
+			}
+		}
+	}
+
+	&:nth-of-type(even) {
+		.link {
+			flex-direction: row-reverse;
+			margin-right: -1 * $h-overflow;
+
+			@include media-queries.tablet-portrait-up {
+				margin-right: -80px;
+			}
+		}
+
+		.image {
+			margin-left: 20px;
+
+			@include media-queries.tablet-portrait-up {
+				margin-left: 50px;
+			}
+		}
+	}
+
+	&:nth-of-type(odd),
+	&:nth-of-type(even) {
+		.link {
+			@include media-queries.tablet-landscape-up {
+				margin: 0;
+				flex-direction: column;
+			}
+		}
+
+		.image {
+			@include media-queries.tablet-landscape-up {
+				margin: 0 auto;
+			}
+		}
+	}
+
+	&:nth-of-type(6n+1),
+	&:nth-of-type(6n+4) {
+		@include media-queries.tablet-landscape-up {
+			max-width: 520px;
+		}
+
+		@include media-queries.desktop-large-up {
+			max-width: 640px;
+		}
+
+		.image {
+			@include media-queries.tablet-landscape-up {
+				width: 520px;
+			}
+
+			@include media-queries.desktop-large-up {
+				width: 640px;
+			}
+
+			&:empty {
+				@include media-queries.tablet-landscape-up {
+					height: 520px;
+				}
+
+				@include media-queries.desktop-large-up {
+					height: 640px;
+				}
+			}
+		}
+	}
+
+	&:nth-of-type(6n+2),
+	&:nth-of-type(6n+5) {
+		@include media-queries.tablet-landscape-up {
+			max-width: 400px;
+		}
+
+		@include media-queries.desktop-large-up {
+			max-width: 520px;
+		}
+
+		.image {
+			@include media-queries.tablet-landscape-up {
+				width: 400px;
+			}
+
+			@include media-queries.desktop-large-up {
+				width: 520px;
+			}
+
+			&:empty {
+				@include media-queries.tablet-landscape-up {
+					height: 400px;
+				}
+
+				@include media-queries.desktop-large-up {
+					height: 520px;
+				}
+			}
+		}
+	}
+
+	&:nth-of-type(6n+3),
+	&:nth-of-type(6n+6) {
+		@include media-queries.tablet-landscape-up {
+			max-width: 380px;
+		}
+
+		.image {
+			@include media-queries.tablet-landscape-up {
+				width: 250px;
+			}
+
+			@include media-queries.desktop-large-up {
+				width: 350px;
+			}
+
+			&:empty {
+				@include media-queries.tablet-landscape-up {
+					height: 250px;
+				}
+
+				@include media-queries.desktop-large-up {
+					height: 350px;
+				}
+			}
+		}
+	}
+
+	&:nth-of-type(6n+1) {
+		@include media-queries.tablet-landscape-up {
+			margin: 0 $large-circle-h-offset 0 auto;
+		}
+
+		@include media-queries.desktop-up {
+			margin-top: 20px;
+		}
+	}
+
+	&:nth-of-type(6n+2) {
+		@include media-queries.tablet-landscape-up {
+			margin: $medium-circle-v-offset 0 0;
+		}
+	}
+
+	&:nth-of-type(6n+3) {
+		@include media-queries.tablet-landscape-up {
+			margin: $small-circle-v-offset 0 0 auto;
+		}
+
+		@include media-queries.desktop-up {
+			margin: $small-circle-v-offset $small-circle-h-offset 0 auto;
+		}
+	}
+
+	&:nth-of-type(6n+4) {
+		@include media-queries.tablet-landscape-up {
+			margin: -100px auto 0 $large-circle-h-offset;
+		}
+	}
+
+	&:nth-of-type(6n+5) {
+		@include media-queries.tablet-landscape-up {
+			margin: $medium-circle-v-offset 0 0 auto;
+		}
+	}
+
+	&:nth-of-type(6n+6) {
+		@include media-queries.tablet-landscape-up {
+			margin: $small-circle-v-offset auto 0 0;
+		}
+
+		@include media-queries.desktop-up {
+			margin: $small-circle-v-offset auto 0 $small-circle-h-offset;
+		}
+	}
+}
+
+.link {
+	display: flex;
+	z-index: qzcom-tokens.$z-index-one;
+	color: inherit;
+	align-items: center;
+}
+
+.image {
+	margin: auto 0;
+	width: 220px;
+	flex-shrink: 0;
+
+	@include media-queries.tablet-portrait-up {
+		width: 400px;
+	}
+
+	&:empty {
+		height: 220px;
+
+		@include media-queries.tablet-portrait-up {
+			height: 400px;
+		}
+	}
+
+	img {
+		width: 100%;
+	}
+}
+
+.text-group {
+	@include layout.block-spacing(auto);
+
+	max-width: 380px;
+
+	@include media-queries.tablet-landscape-up {
+		text-align: center;
+	}
+}

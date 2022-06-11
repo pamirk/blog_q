@@ -1,0 +1,28 @@
+@use '../../@quartz/styles/scss/color-scheme';
+@use '../../@quartz/styles/scss/fonts';
+@use '../../@quartz/styles/scss/media-queries';
+
+.container {
+	@include fonts.maison-500-2;
+}
+
+.date {
+	@include fonts.maison-500-1;
+
+	color: color-scheme.$typography-faint;
+	margin-top: 4px;
+
+	@include media-queries.tablet-landscape-up {
+		margin-top: 8px;
+	}
+}
+
+.dot-after::after {
+	content: '•';
+	margin: 0 5px;
+}
+
+.dot-before::before {
+	content: '•';
+	margin: 0 5px;
+}

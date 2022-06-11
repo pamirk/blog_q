@@ -1,0 +1,19 @@
+@use '../../../@quartz/styles/scss/color-scheme';
+@use '../../../styles/mixins/forms';
+
+.container {
+	@include forms.form-block-layout;
+}
+
+.form-actions {
+	margin-top: 30px;
+}
+
+.billing-copy {
+	@include forms.form-field-description;
+}
+
+.undiscounted-price {
+	font-weight: normal;
+	color: color-scheme.$typography-faint;
+}

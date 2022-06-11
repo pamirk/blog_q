@@ -1,0 +1,34 @@
+@use '../../styles/mixins/layout';
+@use '../../@quartz/styles/scss/color-scheme';
+@use '../../@quartz/styles/scss/fonts';
+@use '../../@quartz/styles/scss/states';
+@use '../../@quartz/styles/scss/helpers/resets';
+@use '../../styles/tokens' as qzcom-tokens;
+
+.toc-section {
+	@include layout.constrain(qzcom-tokens.$size-max-width-content-article);
+	@include fonts.maison-500-3;
+
+	text-align: center;
+}
+
+.summary {
+	@include resets.summary;
+	@include states.fade-on-hover;
+
+	color: color-scheme.$accent;
+
+	&:hover {
+		cursor: pointer;
+	}
+
+	&::before {
+		content: 'View all topics ';
+	}
+
+	[open] & {
+		&::before {
+			content: 'Collapse topics';
+		}
+	}
+}

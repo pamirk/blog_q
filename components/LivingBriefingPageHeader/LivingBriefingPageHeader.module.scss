@@ -1,0 +1,22 @@
+@use '../../@quartz/styles/scss/color-scheme';
+@use '../../@quartz/styles/scss/fonts';
+@use '../../styles/mixins/layout';
+@use '../../styles/tokens' as qzcom-tokens;
+
+.container {
+	@include layout.constrain(qzcom-tokens.$size-max-width-content-article);
+
+	margin-bottom: qzcom-tokens.$size-height-spacing-section;
+	margin-top: qzcom-tokens.$size-height-spacing-section;
+}
+
+.pill {
+	&::after {
+		content: '•';
+		margin: 0 8px;
+	}
+}
+
+.unseen {
+	background-color: color-scheme.$highlight;
+}

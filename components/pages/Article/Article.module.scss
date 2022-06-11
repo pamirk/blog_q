@@ -1,0 +1,14 @@
+@use '../../../styles/mixins/layout';
+@use '../../../styles/tokens' as qzcom-tokens;
+
+.bulletin-kicker-container {
+	@include layout.constrain(qzcom-tokens.$size-max-width-content);
+
+	margin-bottom: qzcom-tokens.$size-height-spacing-heading;
+}
+
+.video-container {
+	@include layout.constrain(qzcom-tokens.$size-max-width-video-large);
+
+	margin-bottom: qzcom-tokens.$size-height-spacing-section;
+}

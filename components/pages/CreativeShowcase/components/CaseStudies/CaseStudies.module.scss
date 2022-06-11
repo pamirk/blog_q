@@ -1,0 +1,9 @@
+@use '../../../../../@quartz/styles/scss/helpers/resets';
+
+.container {
+	@include resets.ul;
+}
+
+.spinner {
+	text-align: center;
+}

@@ -1,0 +1,52 @@
+@use '../../@quartz/styles/scss/color-scheme';
+@use '../../@quartz/styles/scss/fonts';
+@use '../../@quartz/styles/scss/tokens';
+@use '../../styles/mixins/forms';
+
+.promo-code {
+	width: 100%;
+	display: flex;
+	position: relative;
+}
+
+.promo-code-field {
+	@include fonts.maison-500-2;
+
+	flex-grow: 1;
+	color: color-scheme.$typography;
+}
+
+.check-promo-code-button {
+	width: 100px;
+	margin-left: 10px;
+	border: 1px solid transparent;
+	align-self: flex-end;
+}
+
+.status {
+	position: absolute;
+	display: flex;
+	align-items: center;
+	right: 16px;
+	bottom: 16px;
+}
+
+.check {
+	--color: #{color-scheme.$accent};
+}
+
+.status-text {
+	font-size: 14px;
+	margin-left: 6px;
+}
+
+.hint,
+.error {
+	@include forms.form-field-description;
+
+	margin-top: 4px;
+}
+
+.error {
+	color: tokens.$color-red;
+}

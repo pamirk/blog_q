@@ -1,0 +1,37 @@
+@use '../../@quartz/styles/scss/fonts';
+@use '../../@quartz/styles/scss/media-queries';
+@use '../../styles/mixins/layout';
+@use '../../styles/mixins/print';
+@use '../../styles/tokens';
+
+.container {
+	@include layout.constrain(tokens.$size-max-width-content-article);
+	@include print.hide-when-printing;
+
+	margin-top: tokens.$size-height-spacing-block;
+	margin-bottom: tokens.$size-height-spacing-section;
+
+	p {
+		@include fonts.pt-serif-400-1;
+	}
+}
+
+.actions-container {
+	@include media-queries.tablet-portrait-up {
+		display: flex;
+		justify-content: space-between;
+	}
+}
+
+.social-container {
+	display: flex;
+}
+
+.input-container {
+	margin-top: 12px;
+
+	@include media-queries.tablet-portrait-up {
+		width: 50%;
+		margin-top: 0;
+	}
+}

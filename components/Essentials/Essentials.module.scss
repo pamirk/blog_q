@@ -1,0 +1,15 @@
+@use '../../@quartz/styles/scss/borders';
+@use '../../@quartz/styles/scss/helpers/resets';
+@use '../../@quartz/styles/scss/tokens';
+
+.container {
+	@include resets.ul;
+}
+
+.block {
+	& ~ & {
+		border-top: borders.$solid-decorative;
+		padding-top: tokens.$size-gutter-tablet;
+		margin-top: tokens.$size-gutter-tablet;
+	}
+}

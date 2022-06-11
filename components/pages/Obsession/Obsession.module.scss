@@ -1,0 +1,55 @@
+@use '../../../@quartz/styles/scss/color-scheme';
+@use '../../../@quartz/styles/scss/fonts';
+@use '../../../@quartz/styles/scss/helpers/positioning';
+@use '../../../@quartz/styles/scss/media-queries';
+@use '../../../styles/mixins/layout';
+@use '../../../styles/tokens';
+
+.spinner {
+	text-align: center;
+	margin: tokens.$size-height-spacing-section 0;
+}
+
+.essentials {
+	@include fonts.maison-500-4;
+	@include layout.constrain(tokens.$size-max-width-content-article);
+
+	margin-top: tokens.$size-height-spacing-section;
+	margin-bottom: tokens.$size-height-spacing-section;
+}
+
+.header-image-container {
+	height: 280px;
+
+	@include media-queries.tablet-portrait-up {
+		height: 400px;
+	}
+}
+
+.header-image {
+	object-fit: cover;
+	width: 100%;
+	height: 100%;
+	margin: auto;
+	max-width: 620px;
+
+	@include media-queries.tablet-portrait-up {
+		max-width: 886px;
+	}
+}
+
+.credit {
+	@include fonts.maison-500-1;
+
+	color: color-scheme.$typography-faint;
+	text-transform: uppercase;
+	margin: tokens.$size-height-spacing-block 0;
+	text-align: center;
+}
+
+.sponsor {
+	@include layout.constrain(tokens.$size-max-width-content-article);
+
+	margin: tokens.$size-height-spacing-block auto;
+	text-align: center;
+}

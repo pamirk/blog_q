@@ -1,0 +1,9 @@
+@use '../../../styles/mixins/forms';
+
+.container {
+	@include forms.form-page-layout;
+}
+
+.spinner {
+	text-align: center;
+}

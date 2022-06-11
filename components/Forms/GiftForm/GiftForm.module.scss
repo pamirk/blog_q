@@ -1,0 +1,112 @@
+@use '../../../@quartz/styles/scss/borders';
+@use '../../../@quartz/styles/scss/fonts';
+@use '../../../@quartz/styles/scss/media-queries';
+@use '../../../styles/mixins/forms';
+@use '../../../styles/mixins/layout';
+@use '../../../styles/tokens' as qzcom-tokens;
+
+// Todo: share styles via React components, not importing Scss modules
+@use '../Forms.module' as *;
+
+.form-container {
+	@include layout.constrain;
+}
+
+.label {
+	@include forms.form-field-title;
+
+	display: block;
+	margin-bottom: 7px;
+}
+
+.title {
+	margin-right: auto;
+	margin-left: auto;
+	text-align: center;
+}
+
+.plan-select-title {
+	display: none;
+
+	@include media-queries.tablet-landscape-up {
+		display: block;
+		margin-bottom: 55px;
+	}
+}
+
+.input {
+	margin-bottom: 15px;
+}
+
+.section {
+	position: relative;
+	padding: 40px 0;
+
+	@include media-queries.tablet-portrait-up {
+		padding: 60px 0;
+	}
+
+	&::after {
+		content: '';
+		position: absolute;
+		width: 100vw;
+		left: 50%;
+		top: 0;
+		margin-left: -50vw;
+		border-top: borders.$solid-decorative;
+	}
+
+	&:first-child::after {
+		border: 0;
+
+		@include media-queries.tablet-landscape-up {
+			border-top: borders.$solid-decorative;
+		}
+	}
+}
+
+.header {
+	max-width: qzcom-tokens.$size-max-width-site;
+
+	.title {
+		@include fonts.maison-800-9;
+
+		margin-top: 60px;
+
+		@include media-queries.tablet-portrait-up {
+			margin-top: 70px;
+		}
+
+		@include media-queries.desktop-up {
+			margin-top: 100px;
+		}
+	}
+
+	.title,
+	.description {
+		@include layout.constrain;
+
+		text-align: center;
+	}
+
+	.description {
+		@include media-queries.tablet-portrait-up {
+			max-width: 700px;
+			margin-right: auto;
+			margin-left: auto;
+		}
+	}
+
+	@include media-queries.tablet-landscape-up {
+		padding-bottom: 30px;
+	}
+
+	@include media-queries.desktop-up {
+		margin-right: auto;
+		margin-left: auto;
+	}
+}
+
+.logout {
+	font-size: 11px;
+}

@@ -1,0 +1,122 @@
+@use '../../../../../@quartz/styles/scss/borders';
+@use '../../../../../@quartz/styles/scss/color-scheme';
+@use '../../../../../@quartz/styles/scss/fonts';
+@use '../../../../../@quartz/styles/scss/media-queries';
+
+.container {
+	box-sizing: border-box;
+	padding: 20px 0;
+	margin: 0 25px;
+	border-bottom: borders.$solid-decorative;
+
+	@include media-queries.tablet-portrait-up {
+		margin: 0;
+		padding: 0 25px 25px;
+	}
+
+	@include media-queries.tablet-landscape-up {
+		padding-right: 25px;
+	}
+
+	@include media-queries.desktop-up {
+		padding-right: 40px;
+	}
+
+	@media screen and (min-width: 1680px) {
+		padding-right: 60px;
+	}
+
+	&:first-of-type {
+		padding-top: 0;
+	}
+
+	&:last-of-type {
+		border-bottom: 0;
+	}
+
+	&:nth-of-type(odd) {
+		@include media-queries.tablet-portrait-up {
+			border-right: borders.$solid-decorative;
+		}
+
+		@include media-queries.tablet-landscape-up {
+			padding-left: 0;
+		}
+	}
+
+	/* no top padding on top 2 stories */
+	&:nth-of-type(-n+2) {
+		@include media-queries.tablet-portrait-up {
+			padding-top: 0;
+		}
+
+		.kicker {
+			@include media-queries.tablet-portrait-up {
+				border-top: 0;
+				padding-top: 0;
+			}
+		}
+	}
+
+	/* no bottom padding on last 2 stories */
+	&:nth-last-of-type(-n+2) {
+		@include media-queries.tablet-portrait-up {
+			padding-bottom: 0;
+		}
+	}
+
+	.kicker {
+		@include media-queries.tablet-portrait-up {
+			padding-top: 30px;
+			border-top: borders.$solid-decorative;
+		}
+	}
+
+	@include media-queries.tablet-portrait-up {
+		border-bottom: 0;
+		width: 50%;
+		padding-top: 0;
+		padding-bottom: 30px;
+	}
+
+	&:nth-of-type(even) {
+		@include media-queries.tablet-landscape-up {
+			padding-right: 0;
+			padding-left: 25px;
+		}
+
+		@include media-queries.desktop-up {
+			padding-left: 40px;
+		}
+
+		@media screen and (min-width: 1680px) {
+			padding-left: 60px;
+		}
+	}
+}
+
+.kicker {
+	@include fonts.maison-extended-700-1;
+
+	display: block;
+	margin: 0 0 4px;
+	color: color-scheme.$accent;
+}
+
+.article {
+	display: block;
+	text-decoration: none;
+}
+
+.title {
+	@include fonts.maison-800-4;
+
+	color: color-scheme.$typography;
+	margin: 0 0 10px;
+}
+
+.summary {
+	@include fonts.maison-500-2;
+
+	color: color-scheme.$typography-faint;
+}

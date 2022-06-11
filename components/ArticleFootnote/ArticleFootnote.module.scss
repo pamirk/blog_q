@@ -1,0 +1,82 @@
+@use '../../@quartz/styles/scss/color-scheme';
+@use '../../@quartz/styles/scss/fonts';
+@use '../../@quartz/styles/scss/tokens';
+
+.container {
+  overflow-y: hidden;
+  transition: max-height 0.4s ease-out;
+}
+
+.note {
+  display: flex;
+  opacity: 0;
+  transition: opacity 0.4s;
+
+  &.show {
+    opacity: 1;
+  }
+}
+
+.number {
+  @include fonts.maison-800-2;
+
+  color: tokens.$color-gray;
+  margin: 0;
+  line-height: 2;
+}
+
+.text {
+  line-height: 1.5;
+  margin: 0 0 30px 22px;
+}
+
+/* remove styling for footnotes */
+.footnote {
+  color: color-scheme.$typography;
+
+  span {
+    @include fonts.maison;
+
+    position: relative;
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 800;
+    color: tokens.$color-white;
+    vertical-align: middle;
+    background-color: tokens.$color-black;
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    text-align: center;
+    transition: background-color 0.3s;
+
+    &:hover {
+      background-color: tokens.$color-gray;
+    }
+  }
+}
+
+/*:global(.footnote) {
+	color: color-scheme.$typography;
+
+	span {
+		@include fonts.maison;
+
+		position: relative;
+		display: inline-block;
+		font-size: 10px;
+		font-weight: 800;
+		color: tokens.$color-white;
+		vertical-align: middle;
+		background-color: tokens.$color-black;
+		height: 15px;
+		width: 15px;
+		border-radius: 50%;
+		text-align: center;
+		transition: background-color 0.3s;
+
+		&:hover {
+			background-color: tokens.$color-gray;
+		}
+	}
+}*/

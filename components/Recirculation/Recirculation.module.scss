@@ -1,0 +1,35 @@
+@use '../../@quartz/styles/scss/borders';
+@use '../../@quartz/styles/scss/color-scheme';
+@use '../../@quartz/styles/scss/fonts';
+@use '../../styles/mixins/layout';
+@use '../../styles/mixins/print';
+@use '../../styles/tokens' as qzcom-tokens;
+
+.container {
+	overflow: hidden;
+	background-color: color-scheme.$background-2;
+
+	@include print.hide-when-printing;
+}
+
+.feed {
+	@include layout.constrain(1200px);
+}
+
+.heading-container {
+	padding: qzcom-tokens.$size-height-spacing-heading 0;
+	border-bottom: borders.$solid-decorative;
+}
+
+.heading {
+	@include layout.constrain(1200px);
+	@include fonts.maison-extended-700-1;
+
+	margin-top: 0;
+	margin-bottom: 0;
+	color: color-scheme.$typography-faint;
+}
+
+.bulletin {
+	display: block;
+}

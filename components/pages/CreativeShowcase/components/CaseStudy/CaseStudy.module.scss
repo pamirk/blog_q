@@ -1,0 +1,201 @@
+@use '../../../../../@quartz/styles/scss/borders';
+@use '../../../../../@quartz/styles/scss/color-scheme';
+@use '../../../../../@quartz/styles/scss/fonts';
+@use '../../../../../@quartz/styles/scss/media-queries';
+@use '../../../../../@quartz/styles/scss/helpers/resets';
+@use '../../../../../@quartz/styles/scss/states';
+@use '../../creative-showcase.module';
+
+.container {
+	margin: 16px 0 24px;
+
+	@include media-queries.tablet-portrait-up {
+		display: flex;
+		align-items: flex-end;
+	}
+
+	@include media-queries.tablet-landscape-up {
+		margin-bottom: 40px;
+	}
+
+	&.is-featured {
+		align-items: center;
+		margin: 0 0 40px;
+
+		@include media-queries.tablet-landscape-up {
+			margin: 0 0 76px;
+		}
+	}
+}
+
+.featured-image-container {
+	flex-shrink: 0;
+	margin-bottom: 12px;
+
+	@include media-queries.tablet-portrait-up {
+		margin: 0 24px 0 0;
+		width: 50%;
+		flex-grow: 1;
+	}
+
+	@include media-queries.tablet-landscape-up {
+		margin-right: 32px;
+	}
+}
+
+.featured-image {
+	display: block;
+	width: 100%;
+}
+
+.cta {
+	@include fonts.maison-extended;
+
+	font-weight: 700;
+	margin-top: 1em;
+	display: flex;
+	align-items: center;
+}
+
+.cta-icon {
+	--color: #{color-scheme.$accent};
+
+	height: 12px;
+	margin-left: 0.5em;
+}
+
+.text-container {
+	max-width: 620px;
+}
+
+.title-container {
+	margin: 1em 0;
+}
+
+.title {
+	margin: 0;
+	display: inline;
+	color: color-scheme.$accent;
+	font-family: creative-showcase.$font-family-body;
+	line-height: 1.4;
+	font-weight: normal;
+	font-size: 1em;
+
+	@include media-queries.tablet-landscape-up {
+		font-size: 18px;
+	}
+}
+
+.emphasized {
+	@include fonts.maison-extended;
+	@include creative-showcase.link-decoration(color-scheme.$border-decorative);
+
+	font-weight: 700;
+}
+
+.heading {
+	@include fonts.pt-serif;
+
+	font-size: 26px;
+	font-weight: normal;
+	display: block;
+	margin: 0 0 0.5em;
+
+	@include media-queries.desktop-up {
+		font-size: 32px;
+	}
+
+	&.is-featured {
+		font-size: 36px;
+
+		@include media-queries.desktop-up {
+			font-size: 48px;
+		}
+	}
+}
+
+.content {
+	@include creative-showcase.body-text;
+
+	font-size: 14px;
+
+	@include media-queries.tablet-portrait-up {
+		font-size: 16px;
+	}
+
+	// Contents of this selector are applied with dangerouslySetInnerHTML, so we must use tag selectors to style them
+	p {
+		margin-bottom: 1em;
+	}
+}
+
+.expandable {
+	border-top: borders.$solid-interactive;
+}
+
+.summary {
+	@include resets.summary;
+	@include states.fade-on-hover;
+
+	cursor: pointer;
+}
+
+.summary-contents {
+	display: flex;
+	justify-content: space-between;
+	padding: 12px 0;
+
+	@include media-queries.tablet-landscape-up {
+		padding: 18px 0;
+	}
+}
+
+.summary-heading-container {
+	@include media-queries.tablet-landscape-up {
+		display: flex;
+		flex-grow: 1;
+		justify-content: space-between;
+	}
+}
+
+.summary-heading {
+	@include fonts.maison-extended;
+
+	font-weight: 700;
+	display: block;
+	margin-top: 0.5em;
+	color: color-scheme.$typography-faint;
+
+	@include media-queries.tablet-landscape-up {
+		max-width: 620px - 32px;
+		width: calc(50% - 48px);
+		flex-shrink: 1;
+		margin: 0;
+	}
+}
+
+.toggle-icon {
+	--color: #{color-scheme.$typography};
+
+	width: 10px;
+	flex-shrink: 0;
+	margin: 2px 0 0 10px;
+
+	@include media-queries.tablet-landscape-up {
+		width: 14px;
+		margin: 4px 0 0 14px;
+	}
+
+	path:last-child {
+		transition: all 0.3s;
+
+		/*
+			When the <details> element is open, hide the vertical rectangle
+			so the SVG becomes a minus sign. Magic.
+		*/
+		[open] & {
+			opacity: 0;
+			transform: translateY(100%);
+		}
+	}
+}

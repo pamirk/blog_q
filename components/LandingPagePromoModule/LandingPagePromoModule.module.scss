@@ -1,0 +1,84 @@
+@use '../../@quartz/styles/scss/color-scheme';
+@use '../../@quartz/styles/scss/fonts';
+@use '../../@quartz/styles/scss/media-queries';
+@use '../../styles/mixins/forms';
+@use '../../styles/mixins/layout';
+
+// LANDING PAGE PROMO MODULE
+.kicker {
+	@include fonts.maison-extended-700-1;
+
+	color: color-scheme.$accent;
+	margin-top: 30px;
+
+	@include media-queries.tablet-portrait-up {
+		margin-top: 50px;
+	}
+
+	@include media-queries.tablet-landscape-up {
+		margin: 0;
+	}
+}
+
+.title {
+	@include fonts.maison-800-6;
+
+	margin-top: 10px;
+	color: color-scheme.$typography;
+
+	@include media-queries.tablet-landscape-up {
+		margin-bottom: 20px;
+	}
+}
+
+.description {
+	@include fonts.maison-500-3;
+
+	color: color-scheme.$typography-faint;
+
+	@include media-queries.tablet-portrait-up {
+		margin-top: 20px;
+	}
+}
+
+// PROMO HEADER
+.header-container {
+	@include media-queries.tablet-landscape-up {
+		display: flex;
+		align-items: center;
+		flex-direction: row-reverse;
+	}
+}
+
+.art-container {
+	width: 100%;
+
+	@include media-queries.tablet-landscape-up {
+		width: 350px;
+	}
+}
+
+.text-container {
+	@include fonts.maison-800-2;
+
+	color: color-scheme.$typography-faint;
+}
+
+.cta-container {
+	margin: 32px 0;
+
+	&.email-form {
+		width: auto;
+	}
+
+	@include media-queries.tablet-portrait-up {
+		width: 325px;
+		margin: 40px 0;
+	}
+}
+
+.disclaimer {
+	@include forms.disclaimer;
+
+	width: 100%;
+}

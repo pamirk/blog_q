@@ -1,0 +1,24 @@
+@use '../../../@quartz/styles/scss/fonts';
+@use '../../../@quartz/styles/scss/media-queries';
+@use '../../../styles/mixins/forms';
+@use '../../../styles/tokens';
+
+.container {
+	@include forms.form-page-layout;
+
+	margin-bottom: tokens.$size-height-spacing-section;
+	max-width: tokens.$size-max-width-content-article;
+
+	@include media-queries.tablet-portrait-up {
+		margin-right: auto;
+		margin-left: auto;
+	}
+}
+
+.another {
+	margin-bottom: 14px;
+}
+
+.home {
+	margin-bottom: 40px;
+}

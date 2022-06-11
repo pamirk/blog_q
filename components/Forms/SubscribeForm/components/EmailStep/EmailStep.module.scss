@@ -1,0 +1,34 @@
+@use '../../../../../@quartz/styles/scss/color-scheme';
+@use '../../../../../@quartz/styles/scss/fonts';
+@use '../../../../../@quartz/styles/scss/media-queries';
+@use '../../../../../styles/mixins/forms';
+
+.container {
+	margin: auto;
+	max-width: 620px;
+}
+
+.perk-label {
+	@include forms.form-field-title;
+}
+
+.hints {
+	@include fonts.maison-800-2;
+
+	color: color-scheme.$typography-faint;
+	margin: 20px 0;
+
+	@include media-queries.tablet-portrait-up {
+		margin: 30px 40px;
+	}
+}
+
+.disclaimer {
+	@include forms.disclaimer;
+}
+
+.perks-container,
+.top-form-container,
+.testimonial-container {
+	margin-bottom: 40px;
+}

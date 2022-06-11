@@ -1,0 +1,9 @@
+@use '../../../styles/mixins/layout';
+@use '../../../styles/tokens' as qzcom-tokens;
+
+.content {
+	@include layout.constrain(qzcom-tokens.$size-max-width-content-article);
+
+	margin-top: qzcom-tokens.$size-height-spacing-section;
+	margin-bottom: qzcom-tokens.$size-height-spacing-section;
+}

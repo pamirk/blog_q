@@ -1,0 +1,19 @@
+@use '../../@quartz/styles/scss/media-queries';
+@use '../../styles/mixins/layout';
+@use '../../styles/mixins/print';
+@use '../../styles/tokens' as qzcom-tokens;
+
+.container {
+	@include layout.constrain;
+
+	margin-top: qzcom-tokens.$size-height-spacing-section;
+	margin-bottom: qzcom-tokens.$size-height-spacing-section;
+
+	@include media-queries.tablet-portrait-up {
+		margin-right: auto;
+		margin-left: auto;
+		max-width: qzcom-tokens.$size-max-width-content-article;
+	}
+
+	@include print.hide-when-printing;
+}

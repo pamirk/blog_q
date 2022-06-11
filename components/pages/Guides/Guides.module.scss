@@ -1,0 +1,41 @@
+@use '../../../@quartz/styles/scss/helpers/resets';
+@use '../../../@quartz/styles/scss/media-queries';
+@use '../../../@quartz/styles/scss/tokens';
+@use '../../../@quartz/styles/scss/states';
+@use '../../../styles/mixins/layout';
+
+@mixin guides-top-margin {
+	margin-top: tokens.$size-gutter-mobile;
+
+	@include media-queries.tablet-portrait-up {
+		margin-top: tokens.$size-gutter-tablet;
+	}
+}
+
+.guides {
+	@include layout.constrain;
+}
+
+.guides-list {
+	@include resets.ul;
+	@include layout.responsive-grid;
+	@include guides-top-margin;
+}
+
+.guide-item {
+	@include layout.responsive-grid-item;
+	@include states.fade-on-hover;
+}
+
+.loading {
+	margin: 20vh 0;
+	text-align: center;
+}
+
+.search-container {
+	margin: 0 auto;
+
+	@include guides-top-margin;
+
+	max-width: 790px;
+}

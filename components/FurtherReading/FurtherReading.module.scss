@@ -1,0 +1,36 @@
+@use '../../@quartz/styles/scss/color-scheme';
+@use '../../@quartz/styles/scss/fonts';
+@use '../../@quartz/styles/scss/media-queries';
+@use '../../@quartz/styles/scss/tokens';
+
+.container {
+	@include fonts.maison;
+
+	padding-bottom: 25px;
+
+	@include media-queries.tablet-portrait-up {
+		padding-bottom: 0;
+	}
+}
+
+.kicker {
+	@include fonts.maison-extended-700-1;
+
+	color: color-scheme.$typography-faint;
+	margin: 40px 0 0;
+}
+
+.title {
+	@include fonts.maison-800-4;
+
+	margin: 10px 0;
+
+	a {
+		color: inherit;
+	}
+}
+
+.domain {
+	font-size: 13px;
+	color: tokens.$color-gray;
+}

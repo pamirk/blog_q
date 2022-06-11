@@ -1,0 +1,38 @@
+@use '../../@quartz/styles/scss/borders';
+@use '../../@quartz/styles/scss/media-queries';
+@use '../../styles/tokens' as qzcom-tokens;
+
+.container {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+
+	@include media-queries.tablet-portrait-up {
+		position: relative;
+	}
+
+	@include media-queries.tablet-landscape-up {
+		padding-top: 0;
+		flex-direction: row;
+		margin: 0 -60px;
+	}
+
+	@include media-queries.desktop-up {
+		margin: 0 -17px;
+	}
+
+	&::before {
+		content: '';
+		border-top: borders.$solid-decorative;
+		position: absolute;
+		width: 100vw;
+		left: 50%;
+		top: 0;
+		margin-left: -50vw;
+		z-index: qzcom-tokens.$z-index-zero;
+
+		@include media-queries.tablet-landscape-up {
+			content: none;
+		}
+	}
+}

@@ -1,0 +1,47 @@
+@use '../../../../../@quartz/styles/scss/borders';
+@use '../../../../../@quartz/styles/scss/fonts';
+@use '../../../../../@quartz/styles/scss/color-scheme';
+@use '../../../../../styles/tokens';
+
+.section {
+	margin-bottom: tokens.$size-height-spacing-block;
+
+	& + & {
+		border-top: borders.$solid-decorative;
+		margin-top: tokens.$size-height-spacing-block 0;
+		padding-top: tokens.$size-height-spacing-block;
+	}
+}
+
+.section-heading {
+	color: color-scheme.$typography-faint;
+	font-size: inherit;
+	margin: 0 0 tokens.$size-height-spacing-heading;
+}
+
+.toggle-all-button {
+	text-align: right;
+}
+
+.email-container {
+	@include fonts.maison-500-2;
+
+	display: flex;
+	margin-bottom: tokens.$size-height-spacing-list-item;
+}
+
+.card-container {
+	flex-grow: 1;
+	padding-right: 8px;
+}
+
+.frequency {
+	@include fonts.maison-500-1;
+
+	padding: 4px 0;
+}
+
+.frequency,
+.description {
+	color: color-scheme.$typography-faint;
+}

@@ -1,0 +1,68 @@
+@use '../../@quartz/styles/scss/color-scheme';
+@use '../../@quartz/styles/scss/fonts';
+@use '../../@quartz/styles/scss/helpers/resets';
+@use '../../@quartz/styles/scss/media-queries';
+@use '../../@quartz/styles/scss/states';
+@use '../../@quartz/styles/scss/tokens';
+@use '../../styles/tokens' as qzcom-tokens;
+
+.container {
+	position: relative;
+}
+
+.header {
+	@include fonts.maison-800-9;
+
+	margin: 0 0 8px 0;
+}
+
+/**
+ * This is not ideal; instead we should be applying this to ArticleContentBlocks
+ * styles. However, there are too many places that rely on the last block having
+ * margin instead of applying their own. :(
+ */
+.blocks p:last-child {
+	margin-bottom: 0;
+	margin-top: 0;
+}
+
+.callout {
+	position: relative;
+}
+
+.close {
+	@include resets.button;
+	@include states.fade-on-hover;
+
+	cursor: pointer;
+	padding: 16px;
+	position: absolute;
+	right: -24px;
+	top: -24px;
+
+	span {
+		display: none;
+	}
+}
+
+.close-icon {
+	--color: #{color-scheme.$typography};
+
+	width: 12px;
+	height: 12px;
+
+	@include media-queries.tablet-portrait-up {
+		width: 16px;
+		height: 16px;
+	}
+}
+
+.hr {
+	margin: qzcom-tokens.$size-height-spacing-block 0;
+}
+
+.mission {
+	@include fonts.maison-800-5;
+
+	margin-top: 0;
+}

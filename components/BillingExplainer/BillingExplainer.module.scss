@@ -1,0 +1,12 @@
+@use '../../@quartz/styles/scss/helpers/resets';
+@use '../../styles/mixins/forms';
+
+.disclaimer {
+	@include forms.disclaimer;
+}
+
+.perks {
+	@include resets.ul;
+
+	margin-top: 1em;
+}

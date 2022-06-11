@@ -1,0 +1,21 @@
+@use '../../@quartz/styles/scss/media-queries';
+@use '../../@quartz/styles/scss/fonts';
+
+.container {
+	@include fonts.pt-serif-400-1;
+
+	margin: 35px 0;
+
+	@include media-queries.tablet-portrait-up {
+		margin: 60px 0;
+	}
+
+	/*
+		Prevent image overflow. We can't use a class binding here because
+		the HTML is injected into the page using dangerouslySetInnerHtml
+	*/
+	img {
+		max-width: 100%;
+		height: auto;
+	}
+}

@@ -1,0 +1,14 @@
+@use '../../styles/mixins/layout';
+
+.container {
+	overflow-x: hidden;
+}
+
+.constrain {
+	@include layout.constrain;
+}
+
+.confirmation-message {
+	max-width: 520px;
+	margin-bottom: 52px;
+}

@@ -1,0 +1,131 @@
+@use '../../@quartz/styles/scss/borders';
+@use '../../@quartz/styles/scss/color-scheme';
+@use '../../@quartz/styles/scss/fonts';
+@use '../../@quartz/styles/scss/helpers/positioning';
+@use '../../@quartz/styles/scss/media-queries';
+@use '../../styles/mixins/layout';
+@use '../../styles/tokens' as qzcom-tokens;
+
+.container {
+	@include layout.constrain;
+
+	&.app {
+		padding-bottom: 45px;
+	}
+}
+
+.content {
+	@include media-queries.tablet-portrait-up {
+		position: relative;
+		z-index: qzcom-tokens.$z-index-one;
+		max-width: qzcom-tokens.$size-max-width-content-tablet;
+		margin: 0 auto;
+	}
+
+	@include media-queries.tablet-landscape-up {
+		max-width: qzcom-tokens.$size-max-width-content;
+		margin-top: 0;
+	}
+
+	&.premium {
+		max-width: none;
+
+		@include media-queries.tablet-landscape-up {
+			margin-top: 0;
+		}
+	}
+
+	&.paywalled {
+		@include layout.paywall;
+
+		&.video {
+			max-height: 88px;
+			overflow: hidden;
+
+			@include media-queries.tablet-landscape-up {
+				max-height: 110px;
+			}
+		}
+	}
+
+	@media print {
+		width: 100%;
+		max-width: 70%;
+		margin: 0 auto 50px auto;
+	}
+}
+
+.blocks {
+	@include fonts.pt-serif-400-1;
+
+	color: color-scheme.$typography;
+	margin: auto;
+
+	@include media-queries.tablet-landscape-up {
+		width: qzcom-tokens.$size-max-width-content-article;
+	}
+
+	@media print {
+		width: auto;
+	}
+}
+
+.taxonomy {
+	border-bottom: borders.$solid-decorative;
+	margin-bottom: 16px;
+	padding-bottom: 12px;
+
+	@include media-queries.tablet-landscape-up {
+		padding-bottom: 16px;
+	}
+}
+
+.taxonomy-link {
+	display: block;
+}
+
+.sponsor-message {
+	color: color-scheme.$typography-faint;
+	font-style: italic;
+}
+
+.scrollable-container {
+	overflow: auto;
+}
+
+.guide {
+	counter-reset: list;
+}
+
+.byline {
+	margin-bottom: 16px;
+
+	@include media-queries.tablet-landscape-up {
+		margin-bottom: 24px;
+	}
+}
+
+.olympics-title {
+	@include fonts.maison-500-2;
+}
+
+/*:global(.social-embed) {
+	margin-bottom: 30px;
+}*/
+.social-embed {
+	margin-bottom: 30px;
+}
+
+.inline-instagram {
+	iframe {
+		width: 100%;
+	}
+}
+
+/*
+:global(.inline-instagram) {
+	iframe {
+		width: 100%;
+	}
+}
+*/

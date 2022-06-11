@@ -1,0 +1,5 @@
+@use '../../styles/scss/fonts';
+
+.container {
+	@include fonts.maison-extended-700-1;
+}

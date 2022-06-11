@@ -1,0 +1,35 @@
+@use '../../@quartz/styles/scss/color-scheme';
+@use '../../@quartz/styles/scss/fonts';
+@use '../../@quartz/styles/scss/media-queries';
+@use '../../@quartz/styles/scss/helpers/resets';
+@use '../../@quartz/styles/scss/states';
+
+.heading {
+	@include fonts.maison-800-6;
+
+	margin: 140px 0 25px;
+
+	@include media-queries.tablet-portrait-up {
+		margin: 0 0 80px;
+	}
+}
+
+.error {
+	@include fonts.maison-500-2;
+
+	color: color-scheme.$typography-faint;
+	text-align: center;
+	margin: 10px 0;
+}
+
+.retry {
+	@include resets.button;
+	@include states.fade-on-hover;
+
+	color: color-scheme.$accent;
+	cursor: pointer;
+}
+
+.spinner {
+	text-align: center;
+}

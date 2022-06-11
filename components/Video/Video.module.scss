@@ -1,0 +1,18 @@
+@use '../../styles/mixins/article-media';
+
+/* Default size is medium */
+.container {
+	@include article-media.medium;
+}
+
+.large {
+	@include article-media.large;
+}
+
+.extra-large {
+	@include article-media.extra-large--centered;
+}
+
+.medium-left {
+	@include article-media.medium--left-align;
+}

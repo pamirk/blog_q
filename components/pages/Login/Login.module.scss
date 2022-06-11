@@ -1,0 +1,12 @@
+@use '../../../@quartz/styles/scss/media-queries';
+@use '../../../styles/mixins/forms';
+
+.container {
+	@include forms.form-page-layout;
+
+	margin-top: 20px;
+
+	@include media-queries.tablet-landscape-up {
+		margin-top: 60px;
+	}
+}

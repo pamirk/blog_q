@@ -1,0 +1,137 @@
+@use '../../@quartz/styles/scss/color-scheme';
+@use '../../@quartz/styles/scss/fonts';
+@use '../../@quartz/styles/scss/helpers/positioning';
+@use '../../@quartz/styles/scss/media-queries';
+@use '../../@quartz/styles/scss/tokens';
+@use '../../styles/mixins/layout';
+@use '../../styles/tokens' as qzcom-tokens;
+
+$tablet-portrait-width: calc(((100vw - #{qzcom-tokens.$size-max-width-content-article}) / 2) - #{tokens.$size-gutter-tablet /2});
+$desktop-portrait-width: calc(((100vw - #{qzcom-tokens.$size-max-width-content-article}) / 2) - #{tokens.$size-gutter-desktop /2});
+$portrait-max-width: 442px;
+
+.container {
+	@include layout.constrain;
+
+	margin-top: 24px;
+	margin-bottom: 0;
+	max-width: 1200px;
+
+	@include media-queries.tablet-landscape-up {
+		align-self: stretch;
+		margin-top: 40px;
+	}
+
+	&.large {
+		max-width: qzcom-tokens.$size-max-width-image-large;
+
+		@media (min-width: #{qzcom-tokens.$size-max-width-image-large + 2 * tokens.$size-gutter-desktop}) {
+			width: 100%;
+			margin-right: auto;
+			margin-left: auto;
+		}
+	}
+
+	&.extra-large {
+		max-width: qzcom-tokens.$size-max-width-site;
+
+		@include media-queries.desktop-up {
+			margin-left: 24px;
+			margin-right: 24px;
+		}
+
+		@media (min-width: #{qzcom-tokens.$size-max-width-site + 2 * 25px}) {
+			margin-left: auto;
+			margin-right: auto;
+			width: qzcom-tokens.$size-max-width-site;
+		}
+	}
+
+	&.portrait {
+		width: 100%;
+		max-width: $portrait-max-width;
+		margin-left: auto;
+		margin-right: auto;
+
+		@include media-queries.tablet-landscape-up {
+			position: absolute;
+			top: 0;
+			margin-left: 0;
+			width: $tablet-portrait-width;
+		}
+
+		@include media-queries.desktop-up {
+			width: $desktop-portrait-width;
+		}
+
+		@include media-queries.desktop-large-up {
+			width: 100%;
+		}
+
+		&.premium {
+			@include media-queries.tablet-portrait-up {
+				position: static;
+				top: auto;
+				margin-left: auto;
+				margin-right: auto;
+				width: 460px;
+			}
+		}
+	}
+}
+
+/*
+ * Wrapping div that allows us to align rotated credits.
+ */
+.image-container {
+	position: relative;
+
+	amp-img,
+	img {
+		border-radius: 2px;
+	}
+}
+
+.caption {
+	position: relative;
+	text-align: left;
+	color: color-scheme.$typography-faint;
+	padding-top: 5px;
+
+	@include fonts.maison-500-1;
+
+	@include media-queries.tablet-portrait-up {
+		max-width: qzcom-tokens.$size-max-width-content-tablet;
+		padding-top: 10px;
+	}
+
+	@include media-queries.tablet-landscape-up {
+		max-width: none;
+	}
+
+	&.portrait {
+		@include media-queries.tablet-landscape-up {
+			margin-left: 10px;
+		}
+
+		&.premium {
+			@include media-queries.tablet-landscape-up {
+				margin-left: 0;
+			}
+		}
+	}
+}
+
+.credit {
+	@include positioning.rotate-left;
+
+	font-size: 8px;
+	text-transform: uppercase;
+	color: color-scheme.$typography-faint;
+	right: -15px;
+	bottom: 0;
+
+	@include media-queries.tablet-portrait-up {
+		font-size: 10px;
+	}
+}

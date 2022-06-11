@@ -1,0 +1,13 @@
+@use '../../@quartz/styles/scss/helpers/positioning';
+
+.container {
+	position: relative;
+	padding-bottom: 60%;
+	margin-bottom: 30px;
+
+	iframe {
+		border: 0;
+
+		@include positioning.fit-to-container;
+	}
+}

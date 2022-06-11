@@ -1,0 +1,17 @@
+@use '../../@quartz/styles/scss/helpers/resets';
+@use '../../@quartz/styles/scss/tokens';
+
+.container {
+	@include resets.reset;
+
+	color: tokens.$color-black;
+
+	a {
+		color: tokens.$color-accent-blue;
+	}
+}
+
+.placeholder {
+	min-height: 2000px;
+	text-align: center;
+}

@@ -1,0 +1,139 @@
+@use '../../../../../@quartz/styles/scss/borders';
+@use '../../../../../@quartz/styles/scss/color-scheme';
+@use '../../../../../@quartz/styles/scss/fonts';
+@use '../../../../../@quartz/styles/scss/media-queries';
+@use '../../../../../styles/mixins/images';
+
+.container {
+	padding: 20px 0;
+
+	&.top-story {
+		padding-top: 0;
+	}
+
+	border-bottom: borders.$solid-decorative;
+
+	@include media-queries.tablet-portrait-up {
+		padding: 40px 0;
+	}
+
+	@include media-queries.tablet-landscape-up {
+		padding: 30px 0;
+	}
+
+	.link {
+		display: flex;
+		align-items: flex-start;
+
+		@include media-queries.tablet-landscape-up {
+			display: block;
+		}
+	}
+
+	&:first-of-type {
+		@include media-queries.tablet-landscape-up {
+			padding-top: 0;
+		}
+	}
+
+	&:last-of-type {
+		@include media-queries.tablet-landscape-up {
+			padding-bottom: 0;
+			border-bottom: 0;
+		}
+	}
+
+	&:not(:first-child) .title {
+		line-height: 1.3;
+	}
+
+	&:not(.lead-story) {
+		&:nth-child(2),
+		&:nth-child(3),
+		&:nth-child(4) {
+			.hero {
+				@include media-queries.tablet-landscape-up {
+					display: none;
+				}
+			}
+
+			.title {
+				@include media-queries.tablet-landscape-up {
+					font-size: 20px;
+					line-height: 1.2;
+				}
+			}
+		}
+	}
+}
+
+.top-story .link {
+	display: block;
+}
+
+.lead-story:last-of-type {
+	padding-bottom: 0;
+	border-bottom: 0;
+}
+
+.hero {
+	width: 75px;
+	margin: 0 15px 0 0;
+	flex-shrink: 0;
+	flex-grow: 0;
+
+	@include images.work-hero;
+
+	@include media-queries.tablet-portrait-up {
+		width: 140px;
+	}
+
+	@include media-queries.tablet-landscape-up {
+		margin: 0 0 10px 0;
+		width: 100%;
+	}
+
+	.top-story & {
+		width: 100%;
+		margin: 0 0 10px 0;
+	}
+}
+
+.kicker {
+	@include fonts.maison-extended-700-1;
+
+	margin: 0 0 4px;
+}
+
+.title {
+	@include fonts.maison-800-4;
+
+	margin: 0;
+	color: color-scheme.$typography;
+
+	.top-story & {
+		@include fonts.maison-800-6;
+	}
+}
+
+.summary {
+	@include fonts.maison-500-2;
+
+	color: color-scheme.$typography-faint;
+
+	.top-story & {
+		@include media-queries.tablet-portrait-up {
+			display: none;
+		}
+	}
+}
+
+.obsession {
+	width: 100%;
+	margin: 0;
+
+	@include media-queries.tablet-landscape-up {
+		width: 50%;
+		padding: 0 50px;
+	}
+}

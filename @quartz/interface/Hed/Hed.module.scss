@@ -1,0 +1,23 @@
+@use '../../styles/scss/color-scheme';
+@use '../../styles/scss/fonts';
+
+.container {
+	color: color-scheme.$typography;
+	margin: 0;
+}
+
+.small {
+	@include fonts.maison-800-2;
+}
+
+.medium {
+	@include fonts.maison-800-4;
+}
+
+.large {
+	@include fonts.maison-800-5;
+}
+
+.extra-large {
+	@include fonts.maison-800-7;
+}

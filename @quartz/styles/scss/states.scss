@@ -1,0 +1,22 @@
+@use 'media-queries';
+@use 'tokens';
+
+@mixin fade-on-hover {
+	@include media-queries.has-hover {
+		transition: opacity tokens.$time-slowly;
+	}
+
+	&:hover {
+		@include media-queries.has-hover {
+			opacity: 0.7;
+		}
+	}
+}
+
+@mixin reset-fade-on-hover {
+	&:hover:not(:disabled) {
+		@include media-queries.has-hover {
+			opacity: 1;
+		}
+	}
+}

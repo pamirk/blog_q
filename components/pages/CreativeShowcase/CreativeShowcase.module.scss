@@ -1,0 +1,118 @@
+@use '../../../@quartz/styles/scss/color-scheme';
+@use '../../../@quartz/styles/scss/helpers/resets';
+@use '../../../@quartz/styles/scss/fonts';
+@use '../../../@quartz/styles/scss/media-queries';
+@use '../../../@quartz/styles/scss/tokens';
+@use '../../../styles/mixins/layout';
+@use 'creative-showcase.module';
+
+.container {
+	@include layout.constrain;
+
+	margin-bottom: 80px;
+}
+
+.header {
+	padding: tokens.$size-gutter-tablet 0;
+
+	@include media-queries.tablet-landscape-up {
+		display: flex;
+		align-items: flex-end;
+		justify-content: space-between;
+		padding: tokens.$size-gutter-desktop 0;
+	}
+}
+
+.logo {
+	--color: #{color-scheme.$typography};
+
+	height: 15px;
+	margin-bottom: 24px;
+
+	@include media-queries.tablet-landscape-up {
+		margin-bottom: 40px;
+	}
+}
+
+.title-container {
+	max-width: 420px;
+	margin-bottom: 2em;
+
+	@include media-queries.tablet-landscape-up {
+		margin-bottom: 0;
+		max-width: 540px;
+	}
+}
+
+.heading {
+	@include fonts.maison-extended;
+
+	margin: 0 0 0.5em;
+	font-weight: 700;
+	font-size: 40px;
+
+	@include media-queries.tablet-portrait-up {
+		font-size: 65px;
+	}
+
+	@include media-queries.tablet-landscape-up {
+		font-size: 85px;
+	}
+}
+
+.tagline,
+.nav-list-item {
+	@include fonts.maison-extended;
+
+	font-weight: 700;
+	font-size: 18px;
+
+	@include media-queries.tablet-portrait-up {
+		font-size: 20px;
+	}
+}
+
+.intro {
+	@include creative-showcase.body-text;
+
+	margin: 0;
+
+	@include media-queries.tablet-portrait-up {
+		font-size: 18px;
+	}
+}
+
+.nav-list {
+	@include resets.ul;
+
+	display: flex;
+	flex-direction: column;
+	overflow-x: scroll;
+	overflow-y: hidden;
+
+	@include media-queries.tablet-portrait-up {
+		flex-direction: row;
+	}
+
+	@include media-queries.tablet-landscape-up {
+		justify-content: flex-end;
+		margin-left: auto;
+	}
+}
+
+.nav-list-item {
+	margin: 4px 0;
+
+	& + .nav-list-item {
+		@include media-queries.tablet-portrait-up {
+			margin-left: 1em;
+		}
+	}
+}
+
+.nav-link {
+	&:hover,
+	&[aria-current="true"] {
+		@include creative-showcase.link-decoration(color-scheme.$accent, 0.3);
+	}
+}

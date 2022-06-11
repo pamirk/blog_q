@@ -1,0 +1,106 @@
+@use '../../../@quartz/styles/scss/color-scheme';
+@use '../../../@quartz/styles/scss/fonts';
+@use '../../../@quartz/styles/scss/helpers/resets';
+@use '../../../@quartz/styles/scss/media-queries';
+@use '../../../@quartz/styles/scss/tokens';
+
+.header {
+	padding-top: 20px;
+	text-align: center;
+
+	@include media-queries.tablet-portrait-up {
+		padding-top: 30px;
+	}
+
+	@include media-queries.tablet-landscape-up {
+		padding-top: 50px;
+	}
+}
+
+.badge {
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 20px;
+}
+
+.title {
+	color: color-scheme.$accent;
+	margin-bottom: 4px;
+}
+
+.name {
+	@include fonts.maison-800-10;
+
+	margin: 0 0 10px 0;
+}
+
+.bio {
+	@include fonts.maison-500-3;
+
+	max-width: 500px;
+	margin: 7px auto 0;
+	color: color-scheme.$typography-faint;
+	position: relative;
+
+	@include media-queries.tablet-portrait-up {
+		max-width: 600px;
+	}
+
+	@include media-queries.tablet-landscape-up {
+		max-width: 760px;
+		margin-top: 10px;
+	}
+
+	a {
+		color: color-scheme.$accent;
+	}
+
+	p {
+		margin-top: 0;
+	}
+}
+
+.read-more {
+	@include fonts.maison-500-3;
+}
+
+.social {
+	display: flex;
+	flex-direction: column;
+	margin: 16px auto;
+	justify-content: center;
+	align-items: center;
+
+	@include media-queries.tablet-portrait-up {
+		position: relative;
+	}
+}
+
+.share-icons {
+	display: flex;
+	margin: 20px 0 0;
+
+	@include media-queries.tablet-portrait-up {
+		margin-top: 0;
+	}
+}
+
+.personal-url {
+	@include fonts.maison-500-3;
+
+	color: color-scheme.$accent;
+	line-height: 1;
+	margin: 16px 0;
+}
+
+.pgp {
+	@include fonts.maison-500-1;
+
+	color: tokens.$color-gray;
+	margin: 15px 0 0;
+
+	@include media-queries.tablet-portrait-up {
+		margin-top: 30px;
+	}
+}

@@ -1,0 +1,70 @@
+@use '../../../@quartz/styles/scss/borders';
+@use '../../../@quartz/styles/scss/color-scheme';
+@use '../../../@quartz/styles/scss/fonts';
+@use '../../../@quartz/styles/scss/media-queries';
+
+.container {
+	max-width: 620px;
+	width: 100%;
+	margin: auto;
+	color: color-scheme.$typography;
+}
+
+.title {
+	@include fonts.maison-800-6;
+
+	margin-bottom: 24px;
+}
+
+.description {
+	@include fonts.maison-500-2;
+
+	margin: 0 auto 24px;
+	color: color-scheme.$typography-faint;
+}
+
+.buttons,
+.meme-container {
+	margin: 24px auto 0;
+}
+
+.meme-container {
+	width: 100%;
+}
+
+.meme {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	object-position: center;
+}
+
+.form-container {
+	border-top: borders.$solid-decorative;
+}
+
+.input-row {
+	margin-bottom: 12px;
+}
+
+.incorrect {
+	text-decoration: line-through;
+}
+
+.correct {
+	text-decoration: none;
+}
+
+.proposal {
+	// Intentionally using one-off font styling here while we consolidate mixins
+	font-weight: 800;
+	line-height: 1.05;
+	font-size: 22px;
+	padding-top: 40px;
+	margin-top: 40px;
+	border-top: borders.$solid-decorative;
+
+	@include media-queries.tablet-portrait-up {
+		font-size: 24px;
+	}
+}

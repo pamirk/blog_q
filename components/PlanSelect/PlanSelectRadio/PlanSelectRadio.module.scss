@@ -1,0 +1,124 @@
+@use '../../../@quartz/styles/scss/borders';
+@use '../../../@quartz/styles/scss/color-scheme';
+@use '../../../@quartz/styles/scss/fonts';
+@use '../../../@quartz/styles/scss/media-queries';
+@use '../../../@quartz/styles/scss/tokens';
+@use '../../../@quartz/styles/scss/helpers/a11y';
+
+.label {
+	display: block;
+	flex-grow: 1;
+	position: relative;
+	overflow: visible;
+	margin-left: 12px;
+	width: 50%;
+
+	&:first-of-type {
+		margin-left: 0;
+	}
+}
+
+.label-text {
+	display: flex;
+	box-sizing: border-box;
+	padding: 20px 10px;
+	height: 100%;
+	border: borders.$solid-interactive;
+	border-radius: tokens.$size-border-radius;
+	flex-flow: column;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	cursor: pointer;
+
+	&:hover,
+	&:focus {
+		border-color: color-scheme.$accent;
+	}
+}
+
+.label-title {
+	@include fonts.maison-500-2;
+
+	font-weight: 800;
+	color: color-scheme.$typography-faint;
+}
+
+.label-name {
+	@include fonts.maison-800-8;
+
+	color: color-scheme.$typography;
+	margin: 5px 0;
+}
+
+.banner {
+	border: borders.$solid-decorative;
+	border-radius: tokens.$size-border-radius;
+	padding: 5px 10px;
+	text-transform: uppercase;
+	background-color: color-scheme.$accent;
+	color: color-scheme.$background-1;
+	position: absolute;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	white-space: nowrap;
+	font-size: 12px;
+	font-weight: 800;
+	line-height: 1;
+
+	@include media-queries.tablet-portrait-up {
+		font-size: 14px;
+	}
+
+	@include media-queries.desktop-up {
+		font-size: 16px;
+	}
+
+	&.checked {
+		border-color: color-scheme.$accent;
+	}
+}
+
+.radio {
+	@include a11y.visually-hidden;
+
+	&:checked + .label-text {
+		margin: 0 -2px;
+		border-width: 3px;
+		background-color: color-scheme.$background-2;
+		border-color: color-scheme.$accent;
+		color: color-scheme.$typography-faint;
+
+		.label-price {
+			color: color-scheme.$accent;
+		}
+	}
+
+	&:focus + .label-text {
+		border-color: color-scheme.$accent;
+	}
+}
+
+.discounted-price {
+	color: color-scheme.$accent;
+}
+
+.description {
+	@include fonts.maison-500-2;
+
+	color: color-scheme.$typography-faint;
+}
+
+.coupon-label-price {
+	color: color-scheme.$typography-faint;
+}
+
+.coupon-label-discount {
+	@include fonts.maison-800-8;
+
+	color: color-scheme.$accent;
+}
+
+.featured {
+	color: color-scheme.$accent;
+}

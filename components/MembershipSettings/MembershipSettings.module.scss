@@ -1,0 +1,13 @@
+@use '../../@quartz/styles/scss/fonts';
+@use '../../@quartz/styles/scss/tokens';
+@use '../../styles/mixins/forms';
+
+.subscription-copy {
+  @include forms.form-field-description;
+}
+
+.error {
+  @include forms.form-field-description;
+
+  color: tokens.$color-red;
+}

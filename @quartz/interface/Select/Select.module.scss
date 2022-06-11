@@ -1,0 +1,87 @@
+@use '../../styles/scss/borders';
+@use '../../styles/scss/color-scheme';
+@use '../../styles/scss/helpers/positioning';
+@use '../../styles/scss/helpers/resets';
+@use '../../styles/scss/tokens';
+
+.container {
+	display: block;
+}
+
+.select-container {
+	position: relative;
+}
+
+.select {
+	@include resets.select;
+
+	color: color-scheme.$typography;
+	display: inline-block;
+	height: 45px;
+	width: 100%;
+	min-width: 210px;
+	border-radius: tokens.$size-border-radius;
+	border: borders.$solid-interactive;
+	cursor: pointer;
+	font-size: 16px;
+	padding: 0 15px 0 40px;
+	background-color: color-scheme.$background-2;
+
+	&:disabled {
+		color: color-scheme.$typography-faint;
+		opacity: 0.5;
+
+		&:hover {
+			border-color: color-scheme.$border-interactive;
+		}
+	}
+
+	/* The :invalid selector is active when a disabled option is selected. */
+	&:invalid {
+		color: color-scheme.$typography-faint;
+	}
+
+	&[aria-invalid="true"] {
+		color: tokens.$color-red;
+		border-color: tokens.$color-red;
+	}
+
+	&:hover,
+	&:focus {
+		border-color: color-scheme.$accent;
+	}
+}
+
+.down-arrow {
+	@include positioning.vertical-center;
+
+	--color: #{color-scheme.$typography};
+
+	left: 16px;
+
+	.select:hover + & {
+		--color: #{color-scheme.$accent};
+	}
+
+	.select:disabled + &,
+	.select:disabled:hover + & {
+		--color: #{color-scheme.$typography-faint};
+
+		opacity: 0.5;
+	}
+
+	&.invalid {
+		--color: #{tokens.$color-red};
+	}
+}
+
+.hint {
+	margin-top: 10px;
+	font-size: 12px;
+	color: color-scheme.$typography-faint;
+	display: block;
+
+	&.invalid {
+		color: tokens.$color-red;
+	}
+}

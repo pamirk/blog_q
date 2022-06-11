@@ -1,0 +1,118 @@
+@use '../../../@quartz/styles/scss/borders';
+@use '../../../@quartz/styles/scss/color-scheme';
+@use '../../../@quartz/styles/scss/fonts';
+@use '../../../@quartz/styles/scss/helpers/resets';
+@use '../../../@quartz/styles/scss/media-queries';
+@use '../../../@quartz/styles/scss/tokens';
+
+.container {
+	position: relative;
+	padding-top: 20px;
+	margin-bottom: 20px;
+	border-top: borders.$solid-decorative;
+
+	@include media-queries.tablet-portrait-up {
+		padding-top: 80px;
+		margin-bottom: 80px;
+	}
+
+	&:first-of-type {
+		@include media-queries.tablet-portrait-up {
+			border-top: 0;
+			padding-top: 0;
+		}
+	}
+}
+
+.group-title,
+.group-title-mobile {
+	@include fonts.maison-800-3;
+
+	color: color-scheme.$typography;
+	margin: 0;
+}
+
+.group-title {
+	display: none;
+
+	@include media-queries.tablet-portrait-up {
+		display: block;
+	}
+}
+
+.group-toggle-mobile {
+	@include resets.button;
+
+	width: 100%;
+	cursor: pointer;
+
+	@include media-queries.tablet-portrait-up {
+		display: none;
+	}
+
+	&::after {
+		content: "";
+		position: absolute;
+		width: 0;
+		height: 0;
+		border-left: 7px solid transparent;
+		border-right: 7px solid transparent;
+		border-top: 7px solid color-scheme.$typography;
+		border-radius: 1px;
+		right: 0;
+		top: 25px;
+		transition: transform tokens.$time-slowly;
+
+		.expanded & {
+			transform: rotate(180deg);
+		}
+	}
+}
+
+.openings {
+	@include resets.ul;
+
+	height: 0;
+	overflow: hidden;
+	transition: height 0.2s ease-out;
+
+	.expanded & {
+		height: auto;
+	}
+
+	@include media-queries.tablet-portrait-up {
+		height: auto;
+		display: flex;
+		flex-wrap: wrap;
+		margin: 0 -25px;
+	}
+}
+
+.opening {
+	margin: 25px 0 0;
+	box-sizing: border-box;
+
+	@include media-queries.tablet-portrait-up {
+		width: 50%;
+		margin: 45px 0 0;
+		padding: 0 25px;
+	}
+}
+
+.title {
+	@include fonts.maison-500-3;
+}
+
+.meta {
+	@include fonts.maison-500-1;
+
+	color: color-scheme.$typography-faint;
+	margin: 10px 0 0;
+}
+
+.description {
+	@include fonts.maison-500-2;
+
+	color: color-scheme.$typography-faint;
+	margin: 10px 0 0;
+}

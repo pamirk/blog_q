@@ -1,0 +1,29 @@
+@use '../../styles/scss/color-scheme';
+@use '../../styles/scss/media-queries';
+
+.kicker {
+	color: color-scheme.$typography-faint;
+	margin-bottom: 4px;
+
+	&.is-article {
+		color: color-scheme.$accent;
+	}
+
+	&.large,
+	&.extra-large {
+		@include media-queries.tablet-landscape-up {
+			margin-bottom: 8px;
+		}
+	}
+}
+
+.tagline {
+	margin-top: 4px;
+
+	&.large,
+	&.extra-large {
+		@include media-queries.tablet-landscape-up {
+			margin-top: 8px;
+		}
+	}
+}

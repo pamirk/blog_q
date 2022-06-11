@@ -1,0 +1,46 @@
+@use '../../../@quartz/styles/scss/color-scheme';
+@use '../../../@quartz/styles/scss/fonts';
+@use '../../../@quartz/styles/scss/media-queries';
+@use '../../../@quartz/styles/scss/tokens';
+@use '../../../styles/mixins/layout';
+@use '../../../styles/tokens' as qzcom-tokens;
+
+.header-container {
+	max-width: qzcom-tokens.$size-max-width-site;
+	margin: 0 auto qzcom-tokens.$size-height-spacing-section;
+	text-align: center;
+}
+
+.heading,
+.featured-video-container,
+.article-container {
+	@include layout.block-spacing;
+}
+
+.feature-article-link {
+	display: block;
+	margin-top: 12px;
+}
+
+.featured-video-container {
+	max-width: qzcom-tokens.$size-max-width-content;
+	margin-bottom: qzcom-tokens.$size-height-spacing-section;
+}
+
+.section {
+	margin-bottom: qzcom-tokens.$size-height-spacing-section;
+}
+
+.list-container {
+	// hack to negate first list item's top margin
+	overflow: auto;
+	margin-top: -40px;
+
+	@include media-queries.tablet-portrait-up {
+		margin-top: -52px;
+	}
+
+	@include media-queries.tablet-landscape-up {
+		margin-top: -80px;
+	}
+}

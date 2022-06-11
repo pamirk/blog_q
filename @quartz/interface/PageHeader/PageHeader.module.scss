@@ -1,0 +1,74 @@
+@use '../../styles/scss/borders';
+@use '../../styles/scss/color-scheme';
+@use '../../styles/scss/fonts';
+@use '../../styles/scss/media-queries';
+@use '../../styles/scss/tokens';
+
+.container {
+	margin-top: 20px;
+
+	@include media-queries.tablet-landscape-up {
+		margin-top: 48px;
+	}
+
+	&.border {
+		border-bottom: borders.$solid-decorative;
+	}
+
+	&.show-padding {
+		padding-bottom: 28px;
+
+		@include media-queries.tablet-landscape-up {
+			padding-bottom: 60px;
+		}
+	}
+}
+
+.children {
+	margin-top: 16px;
+
+	@include media-queries.tablet-landscape-up {
+		margin-top: 24px;
+	}
+}
+
+.contents {
+	padding: 0 tokens.$size-gutter-mobile;
+	text-align: center;
+
+	@include media-queries.tablet-portrait-up {
+		padding: 0 tokens.$size-gutter-tablet;
+	}
+
+	@include media-queries.tablet-landscape-up {
+		padding: 0 tokens.$size-gutter-desktop;
+	}
+}
+
+.title {
+	@include fonts.maison-800-10;
+
+	margin: 0;
+}
+
+.tagline {
+	margin: 12px auto;
+	max-width: 500px;
+}
+
+.intro {
+	@include fonts.maison-500-3;
+
+	color: color-scheme.$typography-faint;
+	margin: 16px auto;
+	max-width: 500px;
+
+	@include media-queries.tablet-portrait-up {
+		margin: 24px auto;
+		max-width: 600px;
+	}
+
+	@include media-queries.tablet-landscape-up {
+		max-width: 760px;
+	}
+}

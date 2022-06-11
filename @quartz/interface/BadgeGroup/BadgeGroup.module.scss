@@ -1,0 +1,26 @@
+@use '../../styles/scss/color-scheme';
+
+.container {
+	align-items: stretch;
+	display: flex;
+	flex-direction: row;
+}
+
+.badge {
+	margin-right: 10px;
+}
+
+.text {
+	align-self: center;
+	flex-grow: 1;
+}
+
+.arrow {
+	align-self: center;
+	flex-shrink: 0;
+	margin-left: 16px;
+
+	& > path {
+		fill: color-scheme.$typography-faint;
+	}
+}

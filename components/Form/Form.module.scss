@@ -1,0 +1,16 @@
+@use '../../@quartz/styles/scss/fonts';
+@use '../../@quartz/styles/scss/media-queries';
+
+.block {
+	margin: auto;
+	max-width: 620px;
+	width: 100%;
+}
+
+.inline {
+	@include media-queries.desktop-up {
+		display: flex;
+		align-items: flex-end;
+		flex-wrap: wrap;
+	}
+}

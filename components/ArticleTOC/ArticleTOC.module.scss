@@ -1,0 +1,31 @@
+@use '../../@quartz/styles/scss/borders';
+@use '../../@quartz/styles/scss/color-scheme';
+@use '../../@quartz/styles/scss/helpers/resets';
+@use '../../@quartz/styles/scss/tokens';
+@use '../../styles/tokens' as qzcom-tokens;
+
+.header {
+	display: block;
+	margin-bottom: qzcom-tokens.$size-height-spacing-block;
+	padding-bottom: qzcom-tokens.$size-height-spacing-block;
+	border-bottom: borders.$solid-decorative;
+}
+
+.items {
+	@include resets.ul;
+}
+
+.item {
+	margin: 4px 0;
+	padding: 8px;
+
+	&[aria-current="true"] {
+		border: borders.$solid-decorative;
+		border-radius: tokens.$size-border-radius / 2;
+		background-color: color-scheme.$background-3;
+	}
+}
+
+.item-link {
+	display: block;
+}

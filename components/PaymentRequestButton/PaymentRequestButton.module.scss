@@ -1,0 +1,61 @@
+@use '../../@quartz/styles/scss/fonts';
+@use '../../@quartz/styles/scss/tokens';
+@use '../../@quartz/styles/scss/states';
+@use '../../styles/mixins/forms';
+
+.field {
+	margin-bottom: 24px;
+}
+
+.label {
+	display: block;
+
+	@include forms.form-field-title;
+
+	margin: 20px 0 10px 0;
+}
+
+/*
+Styling this ourselves to match the border-radius to our other buttons.
+https://developer.apple.com/documentation/apple_pay_on_the_web/displaying_apple_pay_buttons
+*/
+//noinspection CssInvalidFunction
+.apple-pay-button {
+	display: inline-block;
+	background-size: 100% 40%;
+	background-repeat: no-repeat;
+	background-position: 50% 50%;
+	border-radius: tokens.$size-border-radius;
+	padding: 0;
+	box-sizing: border-box;
+	min-width: 200px;
+	width: 100%;
+	height: 40px;
+	background-image: -webkit-named-image(apple-pay-logo-white);
+	background-color: tokens.$color-black;
+	border: 0;
+	cursor: pointer;
+}
+
+.google-pay-button { // this should not be theme aware
+	@include fonts.maison-800-2;
+	@include states.fade-on-hover;
+
+	width: 100%;
+	box-sizing: border-box;
+	line-height: 1;
+	text-align: center;
+	border-radius: tokens.$size-border-radius;
+	background-color: tokens.$color-black;
+	color: tokens.$color-off-white;
+	border: 0;
+	padding: 14px;
+	cursor: pointer;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.google-pay-logo {
+	padding-right: 2px;
+}

@@ -1,0 +1,48 @@
+@use '../../@quartz/styles/scss/borders';
+@use '../../@quartz/styles/scss/color-scheme';
+@use '../../@quartz/styles/scss/helpers/resets';
+@use '../../@quartz/styles/scss/tokens';
+@use '../../@quartz/styles/scss/helpers/a11y';
+
+.container {
+	display: flex;
+}
+
+.button {
+	@include resets.button;
+
+	transition: opacity tokens.$time-slowly;
+	cursor: pointer;
+	margin-right: 10px;
+	background-color: color-scheme.$border-decorative;
+	border-radius: tokens.$size-border-radius;
+	text-align: center;
+	padding: 15px 0;
+	display: block;
+	width: 100%;
+	line-height: 0;
+
+	&:not(:disabled):hover {
+		opacity: 0.7;
+	}
+
+	&:last-child {
+		margin-right: 0;
+	}
+
+	&:disabled {
+		cursor: wait;
+		opacity: 0.5;
+	}
+}
+
+.label {
+	@include a11y.visually-hidden;
+}
+
+.icon {
+	--color: #{color-scheme.$typography};
+
+	width: 20px;
+	height: auto;
+}

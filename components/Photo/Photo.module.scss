@@ -1,0 +1,7 @@
+@use '../../@quartz/styles/scss/color-scheme';
+@use '../../styles/tokens' as qzcom-tokens;
+
+.container {
+	background: color-scheme.$background-1;
+	z-index: qzcom-tokens.$z-index-one;
+}

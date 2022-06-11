@@ -1,0 +1,130 @@
+@use '../../@quartz/styles/scss/borders';
+@use '../../@quartz/styles/scss/color-scheme';
+@use '../../@quartz/styles/scss/fonts';
+@use '../../@quartz/styles/scss/media-queries';
+@use '../../@quartz/styles/scss/helpers/a11y';
+@use '../../styles/tokens' as qzcom-tokens;
+
+.toggle-container {
+	@include fonts.maison;
+
+	text-align: left;
+	display: flex;
+	margin: 0 auto;
+	justify-content: space-between;
+}
+
+.text {
+	margin-right: 10px;
+
+	@include media-queries.tablet-portrait-up {
+		margin-right: 80px;
+	}
+}
+
+.label {
+	@include fonts.maison-800-4;
+
+	color: color-scheme.$typography;
+	margin: 0 0 8px;
+}
+
+.sub-label {
+	@include fonts.maison-500-2;
+
+	color: color-scheme.$typography-faint;
+	font-weight: normal;
+	margin: 0;
+	max-width: 360px;
+
+	@include media-queries.tablet-portrait-up {
+		max-width: none;
+	}
+}
+
+.hidden {
+	display: none;
+}
+
+.toggle {
+	display: inline-block;
+	position: relative;
+	cursor: pointer;
+	background-color: transparent;
+	border: 0;
+	padding: 0;
+	user-select: none;
+}
+
+.track-on,
+.track-off {
+	position: absolute;
+	height: 10px;
+	width: 14px;
+	top: 7px;
+	font-size: 11px;
+	line-height: 15px;
+	color: color-scheme.$background-2;
+}
+
+.track-off {
+	left: 31px;
+	opacity: 1;
+}
+
+.track-on {
+	left: 11px;
+}
+
+.thumb {
+	transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 28px;
+	height: 28px;
+	border: borders.$solid-interactive;
+	border-width: 2px;
+	border-radius: 50%;
+	background-color: color-scheme.$background-2;
+	box-sizing: border-box;
+}
+
+.toggle-screenreader-only {
+	@include a11y.visually-hidden;
+}
+
+.toggle-disabled {
+	cursor: not-allowed;
+	opacity: 0.5;
+	transition: opacity 0.25s;
+}
+
+.track {
+	width: 56px;
+	height: 28px;
+	padding: 0;
+	border-radius: 28px;
+	background-color: color-scheme.$border-interactive;
+	transition: all 0.2s ease;
+
+	&.focused {
+		box-shadow: 0 0 0 1px color-scheme.$background-2, 0 0 0 3px color-scheme.$border-interactive;
+	}
+}
+
+.toggle-checked {
+	.track {
+		background-color: color-scheme.$accent;
+	}
+
+	.track-off {
+		opacity: 1;
+		transition: opacity 0.25s ease;
+	}
+
+	.thumb {
+		left: 28px;
+		border-color: color-scheme.$accent;
+	}
+}

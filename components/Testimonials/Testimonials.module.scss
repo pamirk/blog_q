@@ -1,0 +1,22 @@
+@use '../../@quartz/styles/scss/color-scheme';
+@use '../../@quartz/styles/scss/fonts';
+@use '../../styles/mixins/forms';
+@use '../../styles/mixins/layout';
+@use '../../styles/tokens' as qzcom-tokens;
+
+.title {
+	@include forms.form-field-title;
+}
+
+.testimonial-container {
+	@include fonts.maison-800-4;
+
+	margin: 12px 0 20px;
+}
+
+.signature {
+	@include fonts.maison-500-2;
+
+	color: color-scheme.$typography-faint;
+	margin: 0;
+}

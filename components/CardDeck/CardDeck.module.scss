@@ -1,0 +1,190 @@
+@use '../../@quartz/styles/scss/borders';
+@use '../../@quartz/styles/scss/color-scheme';
+@use '../../@quartz/styles/scss/fonts';
+@use '../../@quartz/styles/scss/helpers/a11y';
+@use '../../@quartz/styles/scss/helpers/resets';
+@use '../../@quartz/styles/scss/media-queries';
+@use '../../@quartz/styles/scss/tokens';
+@use '../../styles/tokens' as qzcom-tokens;
+
+.container,
+.header,
+.app-header {
+	@include fonts.maison;
+
+	background: color-scheme.$background-1;
+}
+
+.container {
+	position: relative;
+	padding: 0 1em 1em;
+	border-radius: tokens.$size-border-radius;
+	border: borders.$solid-decorative;
+
+	// Decorative elements to create stacking effect
+	&::before,
+	&::after {
+		content: '';
+		position: absolute;
+		top: 0;
+		right: 0;
+		left: 0;
+		height: 5px;
+		background: color-scheme.$background-1;
+		border-radius: tokens.$size-border-radius tokens.$size-border-radius 0 0;
+		border: borders.$solid-decorative;
+		border-bottom: 0;
+	}
+
+	&::before {
+		margin: -12px 19px 0;
+	}
+
+	&::after {
+		margin: -7px 8px 0;
+	}
+}
+
+.header,
+.app-header {
+	padding: 1em 0.5em 4px;
+	position: sticky;
+	top: qzcom-tokens.$size-height-nav-mobile;
+	z-index: qzcom-tokens.$z-index-three;
+	margin: 0 -0.5em;
+
+	@include media-queries.tablet-landscape-up {
+		top: qzcom-tokens.$size-height-nav-tablet;
+	}
+
+	// Quick and dirty way to hide the SVG arrow - trying to avoid
+	// making Prism changes until the experiment is over
+	svg {
+		display: none;
+	}
+}
+
+.app-header {
+	// remove top spacing from app-specific version (no site-wide sticky header)
+	top: 0;
+}
+
+.cards {
+	position: relative;
+}
+
+.card {
+	@include resets.focus-styles;
+
+	display: none;
+	padding-top: 1.25em;
+
+	&.active {
+		display: block;
+	}
+
+	a,
+	a > span,
+	button,
+	form li,
+	input,
+	textarea,
+	// intentionally ignoring taps on Datawrapper embeds (we treat charts like images)
+	iframe:not(iframe[class^='EmbedDatawrapper']):not(iframe[title~=YouTube]) {
+		position: relative;
+		z-index: qzcom-tokens.$z-index-two;
+	}
+
+	// special case for YouTube, which behaves badly when modifying the `position` attribute
+	iframe[title~=YouTube] {
+		z-index: qzcom-tokens.$z-index-two;
+	}
+}
+
+.overlay-button {
+	@include resets.button;
+
+	position: absolute;
+	opacity: 0;
+	top: 0;
+	right: -1em;
+	bottom: -1em;
+	left: -1em;
+	display: block;
+	width: calc(100% + 2em);
+	cursor: e-resize;
+	z-index: qzcom-tokens.$z-index-one;
+}
+
+.controls {
+	display: flex;
+	align-items: center;
+}
+
+.counter {
+	@include fonts.maison-500-1;
+
+	margin: 0 2em;
+	text-align: center;
+}
+
+.control {
+	@include resets.button;
+
+	border-radius: tokens.$size-border-radius;
+	border: borders.$solid-interactive;
+	flex-grow: 1;
+	cursor: pointer;
+	height: 28px;
+
+	&:disabled {
+		color: color-scheme.$typography-faint;
+		border: borders.$solid-decorative;
+		cursor: default;
+	}
+}
+
+.progress-bar {
+	@include a11y.visually-hidden;
+}
+
+.progress-notches {
+	display: flex;
+	margin-top: 1em;
+}
+
+.progress-notch {
+	flex-grow: 1;
+	background: color-scheme.$background-3;
+	height: 2px;
+	transition: background-color 0.1s;
+	border-radius: 2px;
+
+	& + & {
+		margin-left: 4px;
+	}
+
+	&.current {
+		background: color-scheme.$accent;
+	}
+}
+
+.hint {
+	@include fonts.maison-800-2;
+
+	background: color-scheme.$background-2;
+	line-height: 1;
+	padding: 1em;
+	margin-top: 1em;
+	border-radius: tokens.$size-border-radius;
+	border: borders.$solid-decorative;
+	display: flex;
+	justify-content: space-between;
+}
+
+.sponsor-heading {
+	@include fonts.maison-extended-700-1;
+
+	color: tokens.$color-gold;
+	padding-bottom: 4px;
+}

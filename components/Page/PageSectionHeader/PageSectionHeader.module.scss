@@ -1,0 +1,74 @@
+@use '../../../@quartz/styles/scss/color-scheme';
+@use '../../../@quartz/styles/scss/fonts';
+@use '../../../@quartz/styles/scss/media-queries';
+
+.container {
+	margin-bottom: 20px;
+
+	&.block {
+		margin-bottom: 0;
+	}
+}
+
+.title {
+	@include fonts.maison-800-10;
+
+	margin: 15px 0;
+	color: color-scheme.$typography;
+	position: relative;
+
+	&::before {
+		content: "";
+		position: absolute;
+		width: 25px;
+		height: 8px;
+		top: -20px;
+		background-color: color-scheme.$accent;
+
+		@include media-queries.tablet-portrait-up {
+			width: 35px;
+			height: 13px;
+			top: -25px;
+		}
+
+		@include media-queries.tablet-landscape-up {
+			width: 42px;
+			height: 20px;
+			top: -35px;
+		}
+
+		@include media-queries.desktop-up {
+			width: 60px;
+			top: -40px;
+		}
+	}
+}
+
+.title-block {
+	@include fonts.maison-800-5;
+
+	margin-top: 35px;
+	margin-bottom: 0;
+	color: color-scheme.$typography;
+	position: relative;
+}
+
+.description {
+	@include fonts.maison-500-3;
+
+	margin: 0 0 20px;
+	max-width: 335px;
+	color: color-scheme.$typography-faint;
+
+	@include media-queries.tablet-portrait-up {
+		max-width: 400px;
+	}
+
+	@include media-queries.tablet-landscape-up {
+		max-width: 450px;
+	}
+
+	&.full-width {
+		max-width: 100%;
+	}
+}

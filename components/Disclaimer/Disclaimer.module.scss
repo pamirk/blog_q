@@ -1,0 +1,23 @@
+@use '../../@quartz/styles/scss/color-scheme';
+@use '../../@quartz/styles/scss/fonts';
+@use '../../@quartz/styles/scss/tokens';
+
+.disclaimer {
+	@include fonts.maison-500-1;
+
+	margin-top: 30px;
+	color: color-scheme.$typography-faint;
+}
+
+.secure-transaction {
+	color: tokens.$color-green;
+
+	&::before {
+		display: inline-block;
+		content: '';
+		background-image: url("../../styles/svg/lock.svg");
+		height: 11px;
+		width: 15px;
+		background-repeat: no-repeat;
+	}
+}

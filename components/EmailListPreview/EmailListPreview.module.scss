@@ -1,0 +1,26 @@
+@use '../../@quartz/styles/scss/color-scheme';
+
+.phone-preview {
+	width: 350px;
+	height: 715px;
+	margin-right: auto;
+	margin-left: auto;
+	background-image: url("../../styles/svg/phone-frame.svg");
+	background-repeat: no-repeat;
+	background-size: auto 100%;
+	overflow: auto;
+	position: relative;
+	animation: 1.2s ease 0s 1 desktop-open;
+}
+
+.phone-contents {
+	position: absolute;
+	top: 124px;
+	left: 18px;
+	width: 315px;
+	height: 573px;
+	background-color: color-scheme.$background-2;
+	overflow: hidden; /* overflow-y: scroll causes multiple scrollbars in IE11 */
+	border-bottom-right-radius: 31px 35px;
+	border-bottom-left-radius: 31px 35px;
+}

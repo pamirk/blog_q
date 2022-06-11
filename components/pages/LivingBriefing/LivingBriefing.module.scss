@@ -1,0 +1,55 @@
+@use '../../../@quartz/styles/scss/color-scheme';
+@use '../../../@quartz/styles/scss/fonts';
+@use '../../../@quartz/styles/scss/media-queries';
+@use '../../../@quartz/styles/scss/tokens';
+@use '../../../@quartz/styles/scss/states';
+@use '../../../@quartz/styles/scss/helpers/resets';
+@use '../../../styles/mixins/article-media';
+@use '../../../styles/mixins/layout';
+@use '../../../styles/tokens' as qzcom-tokens;
+
+.section {
+	@include layout.constrain(qzcom-tokens.$size-max-width-content-article);
+	@include fonts.maison-500-4;
+
+	margin-bottom: qzcom-tokens.$size-height-spacing-section;
+	margin-top: qzcom-tokens.$size-height-spacing-section;
+}
+
+.heading {
+	margin: qzcom-tokens.$size-height-spacing-section 0 qzcom-tokens.$size-height-spacing-block 0;
+}
+
+.pill {
+	margin-left: 8px;
+}
+
+.article-card {
+	@include article-media.medium;
+}
+
+.guide-cards {
+	column-gap: tokens.$size-gutter-tablet;
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	row-gap: tokens.$size-gutter-tablet;
+
+	@include media-queries.tablet-portrait-up {
+		grid-template-columns: repeat(3, 1fr);
+	}
+}
+
+.guide-card {
+	@include states.fade-on-hover;
+}
+
+.unseen {
+	background-color: color-scheme.$highlight;
+}
+
+.toc-links {
+	@include fonts.maison-500-3;
+
+	color: color-scheme.$typography-faint;
+	text-align: center;
+}

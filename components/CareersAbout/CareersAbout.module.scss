@@ -1,0 +1,86 @@
+@use '../../@quartz/styles/scss/color-scheme';
+@use '../../@quartz/styles/scss/fonts';
+@use '../../@quartz/styles/scss/media-queries';
+@use '../../@quartz/styles/scss/states';
+
+$gutter-tablet: 50px;
+$gutter-desktop: 33px;
+$gutter-desktop-large: 100px;
+
+.title {
+	@include fonts.maison-800-6;
+}
+
+.list {
+	display: flex;
+	flex-flow: row wrap;
+	padding: 0;
+	margin: 0;
+	justify-content: space-between;
+	align-items: flex-start;
+
+	@include media-queries.tablet-portrait-up {
+		margin: 0 #{-$gutter-tablet / 2};
+	}
+
+	@include media-queries.tablet-portrait-up {
+		margin: 0 #{-$gutter-desktop / 2};
+	}
+
+	@include media-queries.desktop-large-up {
+		margin: 0 #{-$gutter-desktop-large / 2};
+	}
+}
+
+.item {
+	padding: 0;
+	margin: 0 0 $gutter-tablet;
+	list-style: none;
+	box-sizing: border-box;
+	max-width: 375px + $gutter-tablet * 2;
+	flex-grow: 1;
+
+	@include media-queries.tablet-portrait-up {
+		flex-grow: 0;
+		width: 50%;
+		padding: 0 $gutter-tablet / 2;
+	}
+
+	@include media-queries.desktop-up {
+		width: 33%;
+		padding: 0 $gutter-desktop / 2;
+		margin: 0 0 $gutter-desktop;
+		max-width: 350px + $gutter-desktop * 2;
+	}
+
+	@include media-queries.desktop-large-up {
+		padding: 0 $gutter-desktop-large / 2;
+		margin: 0 0 $gutter-desktop-large;
+		max-width: 460px + $gutter-desktop-large * 2;
+	}
+
+	a {
+		@include states.fade-on-hover;
+
+		display: block;
+	}
+}
+
+.photo {
+	margin-bottom: 14px;
+	width: 100%;
+}
+
+.item-title {
+	@include fonts.maison-800-3;
+
+	margin: 0 0 8px;
+}
+
+.item-description {
+	@include fonts.maison-500-3;
+
+	color: color-scheme.$typography-faint;
+	margin: 0;
+	max-width: 350px;
+}

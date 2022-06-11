@@ -1,0 +1,58 @@
+@use '../../../@quartz/styles/scss/color-scheme';
+@use '../../../@quartz/styles/scss/fonts';
+@use '../../../@quartz/styles/scss/media-queries';
+@use '../../../styles/mixins/layout';
+
+.nav-item {
+	@include fonts.maison-extended-700-1;
+
+	color: color-scheme.$typography-faint;
+
+	&.active {
+		color: color-scheme.$accent;
+	}
+}
+
+.loading {
+	align-items: center;
+	display: flex;
+	height: 70vh;
+	justify-content: center;
+}
+
+.description-text,
+.subscribe {
+	@include fonts.maison-500-3;
+
+	text-align: center;
+}
+
+.description-text {
+	@include layout.constrain;
+
+	color: color-scheme.$typography-faint;
+	margin-bottom: 0;
+}
+
+.subscribe {
+	margin: 16px 0 0;
+
+	@include media-queries.tablet-portrait-up {
+		margin: 24px 0;
+	}
+}
+
+.subscribe-bottom-padding {
+	padding-bottom: 28px;
+
+	@include media-queries.tablet-portrait-up {
+		padding-bottom: 60px;
+	}
+}
+
+.more-emails:not(:only-child) {
+	&::before {
+		content: '•';
+		margin: 0 5px;
+	}
+}
