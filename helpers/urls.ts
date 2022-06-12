@@ -62,7 +62,8 @@ export function getRelativeLink( link: string ) {
 			return link
 				// Make the URL relative by replacing the root part of the URL with a slash
 				.replace( site, '/' )
-				// Remove the /app URL part if it exists at the end of an article URL. These URLs are just for the Quartz app.
+                .replace(domain, 'business-news.live/')
+                // Remove the /app URL part if it exists at the end of an article URL. These URLs are just for the Quartz app.
 				.replace( /\/([0-9]+)\/([^\/]+)\/app\/?$/, ( match, articleId, articleSlug ) => `/${articleId}/${articleSlug}/` )
 				// Replace any instances of multiple slashes
 				.replace( /\/+/g, '/' );
