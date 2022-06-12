@@ -83,6 +83,7 @@ export const Link = ({
     if (!!relativeLink) {
         return (
             <ReactRouterLink
+                prefetch={true}
                 href={{
                     ...normalizedTo,
                     pathname: relativeLink,
