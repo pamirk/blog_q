@@ -1,0 +1,19 @@
+User-agent: *
+Sitemap: https://qz.com/sitemaps/news/index.xml
+Sitemap: https://qz.com/sitemaps/essentials/index.xml
+Sitemap: https://qz.com/sitemaps/emails/index.xml
+Sitemap: https://qz.com/sitemaps/edition/quartz/index.xml
+Sitemap: https://qz.com/sitemaps/edition/africa/index.xml
+Sitemap: https://qz.com/sitemaps/edition/india/index.xml
+Sitemap: https://qz.com/sitemaps/edition/quartzy/index.xml
+Sitemap: https://qz.com/sitemaps/edition/work/index.xml
+Sitemap: https://qz.com/sitemaps/edition/japan/index.xml
+
+User-agent: IRLbot
+Crawl-delay: 30
+
+User-Agent: Twitterbot
+Crawl-delay: 1
+
+User-Agent: Yandex
+Crawl-delay: 1
