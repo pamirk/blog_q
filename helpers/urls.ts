@@ -45,7 +45,6 @@ export function getRelativeLink( link: string ) {
     // round-trip to the server).
     const staticPaths = [
         /^\/(app|tips)\/?$/,
-        /^https?:\/\/business-news.live\/?$/,
         /^https?:\/\/qz.com\/(app|tips)\/?$/,
         /^\/sitemap\/?/,
         /^https?:\/\/qz.com\/sitemap\/?/,

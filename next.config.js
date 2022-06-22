@@ -2,6 +2,7 @@
 const nextConfig = {
   reactStrictMode: true,
   trailingSlash: true,
+  exportTrailingSlash: true,
   images: {
     domains: ['cms.qz.com'],
     loader: "imgix",
