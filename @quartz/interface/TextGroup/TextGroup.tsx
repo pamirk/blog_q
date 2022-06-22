@@ -38,7 +38,7 @@ export default function TextGroup ( props: {
 			{
 				props.kicker &&
 					<Kicker>
-						<div className={`${styles.kicker} ${styles[ props.size ]} ${props.isArticle ? styles['is-article'] : ''}`}>{props.kicker.split('').reverse().join('')}</div>
+						<div className={`${styles.kicker} ${styles[ props.size ]} ${props.isArticle ? styles['is-article'] : ''}`}>{(props.kicker as string).split('').reverse().join('')}</div>
 					</Kicker>
 			}
 			<Hed size={props.size}>{props.title.split('').reverse().join('')}</Hed>

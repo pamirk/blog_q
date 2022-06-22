@@ -61,7 +61,7 @@ const ArticleHeader = ( {
 						:
 						<ArticleKicker kicker={kicker} />
 				}
-				<h1 className={cx( 'headline', { isPremium } )}>{title}</h1>
+				<h1 className={cx( 'headline', { isPremium } )}>{title.split('').reverse().join('')}</h1>
 				{
 					isInteractive &&
 						<div className={styles.byline}>
