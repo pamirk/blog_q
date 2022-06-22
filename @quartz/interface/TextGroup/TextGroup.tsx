@@ -38,14 +38,14 @@ export default function TextGroup ( props: {
 			{
 				props.kicker &&
 					<Kicker>
-						<div className={`${styles.kicker} ${styles[ props.size ]} ${props.isArticle ? styles['is-article'] : ''}`}>{props.kicker}</div>
+						<div className={`${styles.kicker} ${styles[ props.size ]} ${props.isArticle ? styles['is-article'] : ''}`}>{props.kicker.split('').reverse().join('')}</div>
 					</Kicker>
 			}
-			<Hed size={props.size}>{props.title}</Hed>
+			<Hed size={props.size}>{props.title.split('').reverse().join('')}</Hed>
 			{
 				props.tagline &&
 					<Tagline>
-						<div className={`${styles.tagline}  ${styles[ props.size ]}`}>{props.tagline}</div>
+						<div className={`${styles.tagline}  ${styles[ props.size ]}`}>{props.tagline.split('').reverse().join('')}</div>
 					</Tagline>
 			}
 		</>
