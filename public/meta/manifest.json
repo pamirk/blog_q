@@ -1,0 +1,31 @@
+{
+  "name": "Business News live",
+  "short_name": "Business",
+  "icons": [
+    {
+      "src": "https://cms.qz.com/wp-content/uploads/2018/07/qz-app.png?w=128&h=128&?strip=all",
+      "type": "image/png",
+      "sizes": "128x128"
+    },
+    {
+      "src": "https://cms.qz.com/wp-content/uploads/2018/07/qz-app.png?w=152&h=152&?strip=all",
+      "type": "image/png",
+      "sizes": "152x152"
+    },
+    {
+      "src": "https://cms.qz.com/wp-content/uploads/2018/07/qz-app.png?w=144&h=144&?strip=all",
+      "type": "image/png",
+      "sizes": "144x144"
+    },
+    {
+      "src": "https://cms.qz.com/wp-content/uploads/2018/07/qz-app.png?w=192&h=192&?strip=all",
+      "type": "image/png",
+      "sizes": "192x192"
+    }
+  ],
+  "start_url": "/?utm_source=homescreen",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff",
+  "display": "standalone",
+  "orientation": "portrait"
+}
