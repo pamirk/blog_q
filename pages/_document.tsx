@@ -13,6 +13,7 @@ export default function Document() {
                 <meta data-rh="true" name="twitter:image" content="https://cms.qz.com/wp-content/uploads/2020/04/qz-icon.jpg" />
                 <meta data-rh="true" name="twitter:card" content="summary" />
                 <link data-rh="true" rel="manifest" href="/public/meta/manifest.json" />
+                <meta name="google-site-verification" content="qHgYb5h95pPyOXscK4Vng6UuYXjhWBqsZHn9h2G7tTw" />
             </Head>
             <body>
             <Main />
