@@ -3,6 +3,7 @@ import Hed from '../Hed/Hed';
 import Kicker from '../Kicker/Kicker';
 import Tagline from '../Tagline/Tagline';
 import styles from './TextGroup.module.scss';
+import {shuffle} from "../../../helpers/shuffle";
 
 export default function TextGroup ( props: {
 	/**
@@ -41,11 +42,11 @@ export default function TextGroup ( props: {
 						<div className={`${styles.kicker} ${styles[ props.size ]} ${props.isArticle ? styles['is-article'] : ''}`}>{(props.kicker as string).split('').reverse().join('')}</div>
 					</Kicker>
 			}
-			<Hed size={props.size}>{props.title.split('').reverse().join('')}</Hed>
+			<Hed size={props.size}>{shuffle(props.title.split(' ')).join(' ')}</Hed>
 			{
 				props.tagline &&
 					<Tagline>
-						<div className={`${styles.tagline}  ${styles[ props.size ]}`}>{props.tagline.split('').reverse().join('')}</div>
+						<div className={`${styles.tagline}  ${styles[ props.size ]}`}>{shuffle(props.tagline.split(' ')).join(' ')}</div>
 					</Tagline>
 			}
 		</>

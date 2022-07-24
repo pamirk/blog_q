@@ -1,5 +1,6 @@
 import { get } from '../../helpers/utils';
 import { resizeWPImage } from '../../@quartz/js-utils';
+import {shuffle} from "../shuffle";
 
 /**
  * We can't feature every taxonomy that an article belongs to, so we need to pick
@@ -173,6 +174,7 @@ export const getArticleProps = node => {
 	const blocks = ( article.blocks || [] ).map( block => ( {
 		...block,
 		blockProps: ( block.attributes || [] ).reduce( ( props, { name, value } ) => ( { ...props, [ name ]: value } ), {} ),
+		innerHtml: shuffle(block.innerHtml.split(' ')).join(' ')
 	} ) );
 
 	return {

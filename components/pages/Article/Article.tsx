@@ -110,6 +110,7 @@ export function Article ( props: {
 
     const article = getArticleProps( props.article );
     const qualifiers = getArticleQualifiers( article );
+    console.log("article", article)
 
     const {
         ad,
