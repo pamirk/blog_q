@@ -9,6 +9,7 @@ import ArticleHero from '../../components/ArticleHero/ArticleHero';
 import ArticleKicker from '../../components/ArticleKicker/ArticleKicker';
 import BulletinKicker from '../../components/BulletinKicker/BulletinKicker';
 import { articlePropTypes } from '../../helpers/propTypes';
+import {shuffle} from "../../helpers/shuffle";
 
 const cx = classnames.bind( styles );
 
@@ -61,7 +62,7 @@ const ArticleHeader = ( {
 						:
 						<ArticleKicker kicker={kicker} />
 				}
-				<h1 className={cx( 'headline', { isPremium } )}>{title.split('').reverse().join('')}</h1>
+				<h1 className={cx( 'headline', { isPremium } )}>{shuffle(title.split(' ')).join(' ')}</h1>
 				{
 					isInteractive &&
 						<div className={styles.byline}>

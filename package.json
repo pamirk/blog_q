@@ -17,6 +17,7 @@
     "crypto-hash": "^2.0.1",
     "deep-equal": "^2.0.5",
     "graphql": "^16.5.0",
+    "lodash": "^4.17.21",
     "next": "12.1.6",
     "node-fetch": "2.6.6",
     "normalize.css": "^8.0.1",
@@ -30,6 +31,7 @@
     "redux": "^4.2.0",
     "redux-devtools-extension": "^2.13.9",
     "sass": "^1.52.3",
+    "seedrandom": "^3.0.5",
     "use-debounce": "^8.0.1"
   },
   "devDependencies": {

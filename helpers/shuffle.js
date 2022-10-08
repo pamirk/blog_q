@@ -1,19 +1,28 @@
+import _ from 'lodash'
+
 function shuffle(array) {
-    let currentIndex = array.length, randomIndex;
+    let a = array;
+    let b = [];
+    let i = -1;
 
-    // While there remain elements to shuffle.
-    while (currentIndex != 0) {
+    [a, b] = _.partition(a, (item) => i++ % 3);
 
-        // Pick a remaining element.
-        randomIndex = Math.floor(Math.random() * currentIndex);
-        currentIndex--;
+    /* let currentIndex = array.length, randomIndex;
 
-        // And swap it with the current element.
-        [array[currentIndex], array[randomIndex]] = [
-            array[randomIndex], array[currentIndex]];
-    }
+     // While there remain elements to shuffle.
+     while (currentIndex != 0) {
 
-    return array;
+         // Pick a remaining element.
+
+         randomIndex = Math.floor(Math.random() * currentIndex);
+         currentIndex--;
+
+         // And swap it with the current element.
+         [array[currentIndex], array[randomIndex]] = [
+             array[randomIndex], array[currentIndex]];
+     }
+ */
+    return [a, b];
 }
 
 export {shuffle}
